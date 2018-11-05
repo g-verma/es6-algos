@@ -1,7 +1,7 @@
 {
-  "name": "es6-boilerplate",
+  "name": "es6-algos",
   "version": "1.0.0",
-  "description": "Standard ES6 Boilerplate configured with babel, webpack and eslint.",
+  "description": "ES6 Algos configured with babel, webpack and eslint.",
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel dev:server lint:watch",
