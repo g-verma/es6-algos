@@ -1,0 +1,130 @@
+
+//fb
+const __fb = num =>{
+    if (num <= 1)  return 1;
+
+    return __fb(num - 1 ) + __fb(num - 2);
+}
+var fnum = 2;
+console.log(__fb(fnum));
+seprator();
+
+
+var sum = [1, 2, 3].reduce((a, b) => a + b, 0);
+console.log(sum); // 6
+
+
+var arr = [1,2,3,4];
+var total=0;
+for(var i in arr) { total += arr[i]; }
+
+  var sum = ar.reduce((a,b)=> a+b,0);
+   /* for (var i in ar){ 
+        sum += ar[i]; 
+        }
+    return sum; */
+    return sum;
+
+
+ //adding arrays 
+ function simpleArraySum(ar) {
+  
+  var add = (a,b) =>{ return a + b;}
+  var sum = ar.reduce(add,0);
+  return sum;
+    
+}   
+
+
+var str ="abcdddba";
+var vstr = str.split("");
+
+console.log(vstr);
+var rep = str.reduce(function(a, el, i ,arr){
+if (arr.indexOf(el) !== i && DeviceAcceleration.indexOf(el) < 0) 
+    acc.push(el);
+return acc;
+}, []);
+
+console.log(acc);
+
+
+const __repstr = arr =>{
+    var pp = new Set;
+    return arr.filter(function(item){
+        if(!pp.has(item)){
+            pp.add(item);
+            return true;
+        }
+    }
+    );
+}
+
+console.log( __repstr("abcddbb"));
+['a','b','c','b','b','a']
+
+const __repst = str => {
+    var len = str.length;
+    var result = [];
+    var repChar = {};
+
+    for (var i=0; i<len; i++){
+        var char = str[i];
+        repChar[char] = repChar[char] >= 1 ? repChar[char] + 1 : 1;
+        if (repChar[char] === 2){
+            result.push(char);
+        }
+    }
+
+console.log("repeated chars", result);
+
+    for (var j=0; j<len; j++){
+        if (str.filter( k => {
+            return k == str.charAt(j);
+        }).length == 1) 
+        console.log("non-repeative", str.charAt(j));
+    }
+}
+var inputStr = "abcab";
+console.log(__repst(inputStr));
+seprator();
+
+
+//non rep
+function solution (str) {
+    var counter = {};
+    for (let i = 0; i < str.length; i++) {
+        if (counter[str[i]]) {
+            counter[str[i]] ++;
+        } else {
+            counter[str[i]] = 1;
+        }
+    }
+    for (let i = 0; i < str.length; i++) {
+        if (counter[str[i]] === 1) {
+            return str[i];
+        }
+    }
+}
+
+
+//__repst
+const __repf = str =>{
+	for (var i = 0; i < str.length; i++){
+        var char = 0;
+        var len = str.length
+		for (var j = 0; j < len; j++){
+			if (str[i] === str[j]) {
+				char++;
+				if (char >= 2) {
+				return (str[i]);
+                }
+			}	
+		}
+    }
+    
+
+}
+var inputString = "bacdaa";
+console.log("First Repeating char is: ", __repf(inputString));
+seprator();
