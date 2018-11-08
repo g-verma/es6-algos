@@ -37,7 +37,7 @@ const __rev = string =>{
     
 };
 
-console.log(__rev(testStr));
+console.log("reverse string is: ", __rev(testStr));
 seprator();
 
 //pali
@@ -180,7 +180,6 @@ console.log(__repk(inputStr));
 seprator();
 
 // character frequencies
-
 const __fr = str =>{
     var arr = {};
     var len = str.length;
@@ -227,3 +226,86 @@ arr.forEach(function(obj){
 })
 
 console.log(str);
+seprator();
+seprator();
+
+var redd = [1,2,4,5];
+var ff = ["apple","banana","butter"]
+var somp = "this is example"
+
+var mop ={
+    char: "hehehe",
+    count: 1
+}
+var barr = [];
+var newarr = [];
+
+barr.push(mop);
+console.log("inserting obj in array: ",barr);
+var last = ff[ff.length - 2]
+console.log("array last item : ", last);
+
+
+mop["count"] = mop["count"] + 1;
+
+console.log("count updated: ", mop.count);
+console.log("indexOf: ", redd.lastIndexOf(4));
+console.log("indexOf: ", somp.indexOf(""));
+seprator();
+
+const __obIn = () => {
+
+    for (let i = 0; i < 5; i++) {
+         
+           barr.push(mop);
+        }
+       
+        return barr;          
+    }
+
+console.log("updated barr: ", __obIn());
+seprator();
+
+function bs(arr) {
+    let srt = false;
+    while (!srt) {
+      srt = true;
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i-1] > arr[i]) {
+         srt = false;
+
+         let temp = arr[i-1]
+         arr[i-1] = arr[i]
+         arr[i] = temp
+        }
+      }
+    }
+    return arr;
+ }
+ 
+arr = [5, 8, 1, 2, 15, 3];
+console.log("bs", bs(arr));
+seprator();
+
+const __bsrt = arr =>{
+    var done = true;
+
+    for(var i=0; i< arr.length; i++){
+      for(var j=0; j<arr.length - 1 - i; j++){       
+            if(arr[j] > arr[j+1]){
+                
+                var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp;
+                done = false;
+            }
+        }
+        if(done) return;
+        
+    }
+
+    return arr;    
+}
+
+var inparr = [5, 8, 1, 2, 15, 3];
+console.log("sorted Bs: ", __bsrt(inparr));
