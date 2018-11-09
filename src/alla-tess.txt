@@ -128,3 +128,43 @@ const __repf = str =>{
 var inputString = "bacdaa";
 console.log("First Repeating char is: ", __repf(inputString));
 seprator();
+
+
+ 
+class Stack{
+   
+    constructor(){
+      this.items = [];
+      this.push = this.push.bind( this );
+    }
+
+    push( item ) {
+      this.items.push( item );
+    }
+    
+    pop() {
+      this.items.pop();
+    }
+
+    peek() {
+        console.log( 'Stack.peek()' );
+        console.log(this.items.splice( this.items.length - 1, 1 )[0] );
+      }
+    printStack() {
+      for( let i = 0; i < this.items.length; i = i + 1 ){
+        console.log( this.items[ i ] );
+      }
+    }
+    
+  }
+  
+  var stack = new Stack();
+  
+  stack.push(10);
+  stack.push(20);
+  stack.push(30);
+  
+ stack.printStack();
+ stack.peek();
+ console.log( stack.items );
+  

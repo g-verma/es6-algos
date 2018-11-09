@@ -249,8 +249,11 @@ console.log("array last item : ", last);
 mop["count"] = mop["count"] + 1;
 
 console.log("count updated: ", mop.count);
+
 console.log("indexOf: ", redd.lastIndexOf(4));
-console.log("indexOf: ", somp.indexOf(""));
+
+console.log("indexOf: ", somp.indexOf("this"));
+
 seprator();
 
 const __obIn = () => {
@@ -265,6 +268,7 @@ const __obIn = () => {
 
 console.log("updated barr: ", __obIn());
 seprator();
+
 
 function bs(arr) {
     let srt = false;
@@ -285,6 +289,23 @@ function bs(arr) {
  
 arr = [5, 8, 1, 2, 15, 3];
 console.log("bs", bs(arr));
+seprator();
+
+const __bbsrt = arr =>{
+    for(var i=0; i< arr.length -1; i++){
+        for(var j=0; j<arr.length - 1 - i; j++){ 
+        if(arr[j] > arr[j+1]){  
+            var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+    return arr;
+}
+
+console.log("normal bs : ", __bbsrt(arr));
 seprator();
 
 const __bsrt = arr =>{
@@ -309,3 +330,79 @@ const __bsrt = arr =>{
 
 var inparr = [5, 8, 1, 2, 15, 3];
 console.log("sorted Bs: ", __bsrt(inparr));
+
+const __same = arr =>{
+
+    const el = elm =>{
+        return (elm < 100);
+    }
+
+    return arr.every(elm=>{
+        return (elm < 100);
+    });
+}
+seprator();
+
+var sarr = [5, 8, 1, 2, 15, 3, 200];
+console.log("elements are less than 100: ", __same(sarr));
+
+
+seprator();
+
+ 
+class Stack{
+   
+    constructor(){
+      this.items = [];
+      this.push = this.push.bind( this );
+    }
+
+    push( item ) {
+      this.items.push( item );
+    }
+    
+    pop() {
+      this.items.pop();
+    }
+
+ 
+    printStack() {
+      for( let i = 0; i < this.items.length; i = i + 1 ){
+        console.log( this.items[ i ] );
+      }
+    }
+    
+  }
+  
+  var stack = new Stack();
+  
+  stack.push(10);
+  stack.push(20);
+  stack.push(30);
+  
+ stack.printStack();
+ console.log( stack.items );
+seprator();
+
+//pow 10
+const __pow = num =>{
+    while (num > 9 && num % 10 == 0) 
+        num /= 10;
+    return num == 1;
+}
+
+console.log("pow of 10 is: ", __pow(10000));
+seprator();
+
+//second min
+var sarr = [5, 8, 1, 2, 15, 3, 200];
+const __smin = arr =>{
+arr.sort((a,b)=>{ 
+    return a-b;
+});
+console.log("sorted arr: ", arr);
+return arr;
+}
+
+console.log("second min: ", __smin(sarr)[1]);
+seprator();
