@@ -269,7 +269,7 @@ const __obIn = () => {
 console.log("updated barr: ", __obIn());
 seprator();
 
-
+//bbs with while
 function bs(arr) {
     let srt = false;
     while (!srt) {
@@ -291,6 +291,7 @@ arr = [5, 8, 1, 2, 15, 3];
 console.log("bs", bs(arr));
 seprator();
 
+// bbs without sorted array
 const __bbsrt = arr =>{
     for(var i=0; i< arr.length -1; i++){
         for(var j=0; j<arr.length - 1 - i; j++){ 
@@ -308,6 +309,7 @@ const __bbsrt = arr =>{
 console.log("normal bs : ", __bbsrt(arr));
 seprator();
 
+// sorted bbs
 const __bsrt = arr =>{
     var done = true;
 
@@ -405,4 +407,52 @@ return arr;
 }
 
 console.log("second min: ", __smin(sarr)[1]);
+seprator();
+
+//second min 
+const __ssmin = arr => {
+    var lowest = 0;
+    for (var i = 1; i < arr.length; i++) {
+     if (arr[i] < arr[lowest]) lowest = i;
+    }
+    return lowest+1;
+   }
+
+var narr = [5, 8, 1, 2, 15, 3, 200];
+console.log("smallest: ", __ssmin(narr));
+seprator();
+
+
+//bin search
+
+const __bsearch = (arr, el) =>{
+
+    arr.sort((a,b) =>{  return a-b; });
+
+    
+    var lowindex = 0;
+    var highindex = arr.length - 1;
+    var pos;
+    var flag = false;
+
+    while(highindex >= lowindex){
+        pos = (lowindex + highindex) / 2;
+            if(arr[pos] == el){
+               flag = true;
+               break; 
+            }else if(el > arr[pos]){
+                lowindex = pos + 1;
+            }else{
+                highindex = pos - 1;
+            }
+             
+    }
+    if(flag)
+       return true;
+    else
+       return false;   
+}
+
+var barr = [5, 8, 1, 2, 15, 3, 200];
+console.log("bin search: ", __bsearch(barr, 1));
 seprator();
