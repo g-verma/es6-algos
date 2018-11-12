@@ -1,4 +1,4 @@
-const seprator = (msg) => {
+const seprator = msg => {
     if(msg === undefined)
         { msg = " ";}    
     return console.log("--------------- " + msg + " ----------------");
@@ -632,6 +632,58 @@ const __foc = num =>{
 }
 
 
+// var inNum = [5, 8, 1, 2, 15, 3, 200,100];
+var sortedArray = [1,2,5,7,8,9,10,11,12,13];
+console.log("FOC : ", __foc(sortedArray)); 
+seprator();
+
+
+
+//reports
+const __report = num =>{
+    
+    var resObj = {items: 0, total: 0, avg: 0, median: 0};
+    var len = num.length;
+
+    console.log("s1 ", num.s1);
+    console.log("s2 ", num.s2);
+    
+    var m1= (num.s1.length / 2) - 1;
+
+    var m2 = m1 + 1;
+    
+    // var s1input = num.s1;
+    // var s1_result = s1input.reduce((a,b)=> a+b,0); // method one 
+    // console.log("S1 Result with reduce: ", s1_result);
+
+    const __arrSum = arr =>{ // method 2
+        var summ = 0;
+
+        for (var i in arr){  
+            summ += arr[i];
+        }
+        return summ;
+    }
+
+    const __getLen = (num) => {
+        var length = Object.keys(num).length;
+        return length;
+       }
+
+    var soneres = __arrSum(num.s1);
+    var stwores = __arrSum(num.s2);
+    
+    console.log("S1 sum: ", soneres ,"  S2 Sum: ", stwores);
+       
+    resObj.items = num.s1;
+    resObj.total = soneres;
+    resObj.avg = soneres / len;
+    resObj.median = (num[m1] + num[m2]) / 2;
+
+    return resObj;
+}
+
+
 
 var marks = {
     s1: {
@@ -641,24 +693,12 @@ var marks = {
         maths: 40
     }, 
     s2: { 
-        geo: 10,
-        phy: 20,
-        chem: 30,
-        maths: 40
+        geo: 50,
+        phy: 60,
+        chem: 70,
+        maths: 80
     } 
 };
 
-// var inNum = [5, 8, 1, 2, 15, 3, 200,100];
-var sortedArray = [1,2,5,7,8,9,10,11,12,13];
-console.log("FOC : ", __foc(sortedArray)); 
-//console.log("FOC : ", __foc(marks)); 
-
-
-//  function simpleArraySum(ar) {
-  
-//     var add = (a,b) =>{ return a + b;}
-//     var sum = ar.reduce(add,0);
-//     return sum;
-      
-//   }   
-  
+console.log("Reports: ", __report(marks)); 
+seprator();
