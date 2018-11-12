@@ -1,5 +1,7 @@
-const seprator = () => {
-    console.log("----------------------------");
+const seprator = (msg) => {
+    if(msg === undefined)
+        { msg = " ";}    
+    return console.log("--------------- " + msg + " ----------------");
 };
 
 seprator();
@@ -139,6 +141,7 @@ seprator();
 //non repeative    
 const __nonrep = str => {
     var char = {};
+
     for (let i = 0; i < str.length; i++) {
         if (char[str[i]]) {
             char[str[i]] ++;
@@ -153,6 +156,7 @@ const __nonrep = str => {
     }
 }
 var inputString = "bacdaab";
+console.log("string passed for non repeating: ", inputString);
 console.log("First Non-Repeating char is: ", __nonrep(inputString));
 seprator();
 
@@ -333,6 +337,8 @@ const __bsrt = arr =>{
 var inparr = [5, 8, 1, 2, 15, 3];
 console.log("sorted Bs: ", __bsrt(inparr));
 
+
+// element is less than 100 of not
 const __same = arr =>{
 
     const el = elm =>{
@@ -456,3 +462,203 @@ const __bsearch = (arr, el) =>{
 var barr = [5, 8, 1, 2, 15, 3, 200];
 console.log("bin search: ", __bsearch(barr, 1));
 seprator();
+
+
+
+
+
+function arrSort(arr, subkey) {
+  
+  subkey = (subkey === undefined ? 0 : subkey);
+
+  var a = arr.slice(0),
+      b = [], x;
+
+  for (x in a) {
+    b[x] = [a[x][subkey], x];
+  }
+
+  b = b.sort();
+  arr.splice(0, arr.length);
+
+  for (x in b) {
+    arr.push(a[b[x][1]]);
+  }
+
+  return arr;
+}
+
+var stack = [-3, 14, 18, -5, 30];
+console.log("sorted with rec", arrSort(stack));
+
+seprator();
+
+
+var unsortedArray = [-10, 7, 29, 30, 5, -10, -70];
+
+console.log("largest product yielded from following integers; ", computeProduct(unsortedArray)); // 21000
+
+function sortIntegers(a, b) {
+  return a - b;
+}
+
+// Greatest product is either (min1 * min2 * max1 || max1 * max2 * max3)
+function computeProduct(unsorted) {
+  var sortedArray = unsorted.sort(sortIntegers),
+    product1 = 1,
+    product2 = 1,
+    array_n_element = sortedArray.length - 1;
+
+  // Get the product of three largest integers in sorted array
+  for (var x = array_n_element; x > array_n_element - 3; x--) {
+      product1 = product1 * sortedArray[x];
+  }
+
+  product2 = sortedArray[0] * sortedArray[1] * sortedArray[array_n_element];
+
+  if (product1 > product2) return product1;
+
+  return product2;
+}
+seprator("array concat");
+
+
+//merge median
+const __findMedian = (arr1, arr2) => {  // defined two arguments.
+    var sortedArray = [...arr1, ...arr2];   // here we are merging the two arrays.
+    sortedArray.sort((a,b) => a-b); // now it will sort the merged array in ascending order.
+
+    console.log("Sorted Array : ", sortedArray); // It will display sorted array first.
+
+    // var median = 0;
+    // for (var i = 0; i < sortedArray.length; i = i + 1) {
+    //     median = median + sortedArray[i];
+    // }
+    // var output = median / sortedArray.length ;
+    // return output;  
+    
+    var len = sortedArray.length;   // taking the length of the array iin a variable.
+    var m1 = (len / 2) - 1;  // bisecting the length of array; we used -1 because array starts with 0(zero); and taking the first M1 value ie the last index of array.
+    var m2 = m1 + 1; // capturing the next index value in array for m2.
+    
+    var median = (sortedArray[m1] + sortedArray[m2]) / 2;  //calculating the median here ie dividing the (m1 + m2) / 2 ; and passing them as index value to sortedArray. 
+    
+    return median;  // here returning the output  9.5 in our case
+  }
+
+  var inputArr1 = [1,5,7,10,12,14];  // two input arrays with same size inputArr1 and inputArr2
+  var inputArr2 = [2,8,9,11,13,15];
+
+  //calling the findMedian function and passing arguments - It will take two arrays as arguments with same size.
+  console.log("Median is : ", __findMedian(inputArr1, inputArr2));
+
+
+
+
+  //merge two and remove duplicates
+  function merge_array(array1, array2) {
+    var result_array = [];
+    var arr = array1.concat(array2);
+    var len = arr.length;
+    var assoc = {};
+
+    while(len--) {
+        var item = arr[len];
+
+        if(!assoc[item]) 
+        { 
+            result_array.unshift(item);
+            assoc[item] = true;
+        }
+    }
+
+    return result_array;
+}
+
+
+var array1 = [1, 2, 3];
+var array2 = [2, 30, 1];
+
+console.log(merge_array(array1, array2));
+seprator("array merge");
+
+const __onrep = str => {
+    var char = {};
+    
+    for (let i = 0; i < str.length; i++) {
+        if (char[str[i]]) {
+            char[str[i]] ++;
+        } else {
+            char[str[i]] = 1;
+        }
+    }
+    for (let i = 0; i < str.length; i++) {
+        if (char[str[i]] === 1) {
+            return str[i];
+        }
+    }
+}
+
+
+//objects with sum avg median
+const __foc = num =>{
+    var resObj = {items: 0, total: 0, avg: 0, median: 0};
+    var len = num.length;
+    var m1= (num.length / 2) - 1;
+    var m2 = m1 + 1;
+    
+   // var sum = num.reduce((a,b)=> a+b,0); // method one
+    
+    const __arrSum = arr =>{ // method 2
+        var summ = 0;
+
+        for (var i in arr){  // method 2
+            summ += arr[i];
+        }
+        return summ;
+    }
+
+    var summArray = __arrSum(num);
+
+    console.log("the sum is", summArray);
+          
+   
+    resObj.items = len;
+    resObj.total = summArray;
+    resObj.avg = summArray / len;
+    resObj.median = (num[m1] + num[m2]) / 2;
+
+    return resObj;
+}
+
+
+
+var marks = {
+    s1: {
+        geo: 10,
+        phy: 20,
+        chem: 30,
+        maths: 40
+    }, 
+    s2: { 
+        geo: 10,
+        phy: 20,
+        chem: 30,
+        maths: 40
+    } 
+};
+
+// var inNum = [5, 8, 1, 2, 15, 3, 200,100];
+var sortedArray = [1,2,5,7,8,9,10,11,12,13];
+console.log("FOC : ", __foc(sortedArray)); 
+//console.log("FOC : ", __foc(marks)); 
+
+
+//  function simpleArraySum(ar) {
+  
+//     var add = (a,b) =>{ return a + b;}
+//     var sum = ar.reduce(add,0);
+//     return sum;
+      
+//   }   
+  

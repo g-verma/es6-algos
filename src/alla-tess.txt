@@ -167,4 +167,8 @@ class Stack{
  stack.printStack();
  stack.peek();
  console.log( stack.items );
+
+
+
+ seprator();
   
