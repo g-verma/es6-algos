@@ -395,7 +395,7 @@ seprator();
 //pow 10
 const __pow = num =>{
     while (num > 9 && num % 10 == 0) 
-        num /= 10;
+         num /= 10;
     return num == 1;
 }
 
@@ -700,29 +700,40 @@ var marks = {
         maths: 40
     }, 
     s2: { 
-        geo: 50,
-        phy: 60,
+        geo: -50,
+        phy: -60,
         chem: -70,
         maths: -80,
-        bio: 90
+        bio: -90
     } 
 };
 
 console.log("Reports: ", __report(marks)); 
-seprator();
-
+seprator("Merge two arrays");
 
 const __rofl = string => {
-    var output = {items:{}};  //output item:{ 0:'a', 1: 'b', 2:'r'}
+    var output = {items:{}, sumtot : 0 };  //output item:{ 0:'a', 1: 'b', 2:'r'}
+    var summ = 0;
 
-    for(var i=0; i<string.length;i++){
+    for(var i=0; i<string.length; i++){
         output.items[i] = string[i];
+        output.sumtot = summ += string[i];
     }
-    console.log(output);
 
+    console.log("sum of mergerd array is: ", output.sumtot);
+    return output;
 }
 
+var inNum = [5, 8, 1, 2, 15, 3, 200,100];
 var inputStr = "abracadabra";
-console.log(__rofl(marks));
-seprator();
+console.log("merged array is: ",__rofl(inNum));
 
+
+var num1 = [1, 3, 4, 5]
+var num2 = [1, 4, 8, 3]
+var mergeArray = [];
+
+
+num1.push.apply(num1,num2);
+
+console.log(num1);
