@@ -635,28 +635,22 @@ const __foc = num =>{
 // var inNum = [5, 8, 1, 2, 15, 3, 200,100];
 var sortedArray = [1,2,5,7,8,9,10,11,12,13];
 console.log("FOC : ", __foc(sortedArray)); 
-seprator();
-
+seprator("reports");
 
 
 //reports
-const __report = num =>{
+const __report = num => {
     
-    var resObj = {items: 0, total: 0, avg: 0, median: 0};
+    var resObj = {items: 0, s1total: 0, s2total:0, avg: 0, median: 0};
     var len = num.length;
 
     console.log("s1 ", num.s1);
     console.log("s2 ", num.s2);
     
     var m1= (num.s1.length / 2) - 1;
-
     var m2 = m1 + 1;
-    
-    // var s1input = num.s1;
-    // var s1_result = s1input.reduce((a,b)=> a+b,0); // method one 
-    // console.log("S1 Result with reduce: ", s1_result);
 
-    const __arrSum = arr =>{ // method 2
+    const __arrSum = arr =>{       // add method 2
         var summ = 0;
 
         for (var i in arr){  
@@ -668,15 +662,28 @@ const __report = num =>{
     const __getLen = (num) => {
         var length = Object.keys(num).length;
         return length;
-       }
+    }
 
-    var soneres = __arrSum(num.s1);
+    for(var i in num){
+        console.log("arrSum is:  ", __arrSum(i));
+    }
+
+
+    var soneres = __arrSum(num.s1); //s1 total
     var stwores = __arrSum(num.s2);
-    
-    console.log("S1 sum: ", soneres ,"  S2 Sum: ", stwores);
+
+    var s1len = __getLen(num.s1);
+    var s2len = __getLen(num.s2);
+
+    console.log("S1 length is: ", s1len );
+    console.log("S2 length is: ", s2len );
+
+    console.log("S1 sum: ", soneres,"  S2 Sum: ", stwores);
        
-    resObj.items = num.s1;
-    resObj.total = soneres;
+    resObj.items = s1len + s2len;
+    resObj.s1total = soneres;
+    resObj.s2total = stwores;
+
     resObj.avg = soneres / len;
     resObj.median = (num[m1] + num[m2]) / 2;
 
@@ -687,18 +694,35 @@ const __report = num =>{
 
 var marks = {
     s1: {
-        geo: 10,
+        geo: -10,
         phy: 20,
-        chem: 30,
+        chem: -30,
         maths: 40
     }, 
     s2: { 
         geo: 50,
         phy: 60,
-        chem: 70,
-        maths: 80
+        chem: -70,
+        maths: -80,
+        bio: 90
     } 
 };
 
 console.log("Reports: ", __report(marks)); 
 seprator();
+
+
+const __rofl = string => {
+    var output = {items:{}};  //output item:{ 0:'a', 1: 'b', 2:'r'}
+
+    for(var i=0; i<string.length;i++){
+        output.items[i] = string[i];
+    }
+    console.log(output);
+
+}
+
+var inputStr = "abracadabra";
+console.log(__rofl(marks));
+seprator();
+
