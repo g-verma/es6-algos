@@ -809,4 +809,28 @@ const __binarySearch = (arr, el) =>{
 var barr = [5, 8, 1, 2, 15, 3, 200];
 console.log("binary Search: ", __binarySearch(barr, 1));
 
+seprator(" Time Complexity O(n^2) : ");
+//example 1
+for(var i = 0; i < 2; i++) {    
+    for(var j = 0; j < 5; j++) { // in this we are iterating till it will loop to all the elements of outer loop also.
+       console.log("value of i", i, "value of j", j);
+    }
+}
+//example 2
+
+const __bbsort = arr =>{
+    for(var i=0; i< arr.length -1; i++){
+        for(var j=0; j<arr.length - 1 - i; j++){ 
+        if(arr[j] > arr[j+1]){  
+            var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp;
+            }
+        }
+    }
+
+    return arr;
+}
+arr = [5, 8, 1, 2, 15, 3];
+console.log("bubble sort : ", __bbsort(arr));
 
