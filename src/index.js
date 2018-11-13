@@ -742,7 +742,7 @@ console.log("merged array: ", num1);
 
 
 
-seprator(" Time Complexity O(1) : ");
+seprator(" Time Complexity O(1) : ");  // Constant Time Algorithm
 //example 1
 var number = [1, 3, 4, 5];
 console.log(number[3]);
@@ -752,7 +752,7 @@ number.push(44);
 console.log("updated array", number);
 
 
-seprator(" Time Complexity O(n) : ");
+seprator(" Time Complexity O(n) : ");  // Linear Time Algorithm
 
 //example 1
 for(var i = 0; i< 10; i++){ // Time complexity will be O(n), as it will iterate over an over till 10.
@@ -766,10 +766,10 @@ for(var i = 0; i< num.length; i++){
 }
 
 
-seprator(" Time Complexity O(logn) : "); // here you will reduce the time by half every time when iterating for the next time.
+seprator(" Time Complexity O(logn) : "); // Logarithmic Time Algorithm
 
 //example 1
-const __fibb = num =>{
+const __fibb = num =>{  // here you will reduce the time by half every time when iterating for the next time.
     if (num ==0 || num <= 1)  return 1;
     var result = __fibb(num - 1 ) + __fibb(num - 2);
      return result;
@@ -809,7 +809,8 @@ const __binarySearch = (arr, el) =>{
 var barr = [5, 8, 1, 2, 15, 3, 200];
 console.log("binary Search: ", __binarySearch(barr, 1));
 
-seprator(" Time Complexity O(n^2) : ");
+seprator(" Time Complexity O(n^2) : ");  // Quadratic Time Complexity
+
 //example 1
 for(var i = 0; i < 2; i++) {    
     for(var j = 0; j < 5; j++) { // in this we are iterating till it will loop to all the elements of outer loop also.
