@@ -731,9 +731,82 @@ console.log("merged array is: ",__rofl(inNum));
 
 var num1 = [1, 3, 4, 5]
 var num2 = [1, 4, 8, 3]
-var mergeArray = [];
-
-
 num1.push.apply(num1,num2);
+console.log("merged array: ", num1);
 
-console.log(num1);
+
+
+
+
+// Time Complexities
+
+
+
+seprator(" Time Complexity O(1) : ");
+//example 1
+var number = [1, 3, 4, 5];
+console.log(number[3]);
+
+//example 2
+number.push(44);
+console.log("updated array", number);
+
+
+seprator(" Time Complexity O(n) : ");
+
+//example 1
+for(var i = 0; i< 10; i++){ // Time complexity will be O(n), as it will iterate over an over till 10.
+   console.log(i); // so complexity will depend on input
+}
+
+//example 2
+var num = [5, 8, 1, 2, 15, 3, 200,100]; // here we are traversing the array so it will iterate till the length that nth item.
+for(var i = 0; i< num.length; i++){
+    console.log(num[i]);
+}
+
+
+seprator(" Time Complexity O(logn) : "); // here you will reduce the time by half every time when iterating for the next time.
+
+//example 1
+const __fibb = num =>{
+    if (num ==0 || num <= 1)  return 1;
+    var result = __fibb(num - 1 ) + __fibb(num - 2);
+     return result;
+ }
+ var ffnum = 5;
+ console.log(__fibb(ffnum));
+
+// example 2
+
+const __binarySearch = (arr, el) =>{
+
+    arr.sort((a,b) =>{  return a-b; });
+    
+    var lowindex = 0;
+    var highindex = arr.length - 1;
+    var pos;
+    var flag = false;
+
+    while(highindex >= lowindex){
+        pos = (lowindex + highindex) / 2; // here we are dividing the length into half, and will proceed with half length to check.
+            if(arr[pos] == el){
+               flag = true;
+               break; 
+            }else if(el > arr[pos]){
+                lowindex = pos + 1;
+            }else{
+                highindex = pos - 1;
+            }
+             
+    }
+    if(flag)
+       return true;
+    else
+       return false;   
+}
+
+var barr = [5, 8, 1, 2, 15, 3, 200];
+console.log("binary Search: ", __binarySearch(barr, 1));
+
+
