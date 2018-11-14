@@ -835,3 +835,46 @@ const __bbsort = arr =>{
 arr = [5, 8, 1, 2, 15, 3];
 console.log("bubble sort : ", __bbsort(arr));
 
+seprator(" Given an unsorted array of integers, count the number of subarray which adds to a given number. ");
+// can used for “Find a subarray such that the sum of elements in it is equal to zero
+
+
+const __givenSumFn = (arr, givenSum) => {
+  
+    var currSum = 0;
+    var start = 0;
+    var end = 0;
+    
+   for(var i =0; i < arr.length; i++){
+     
+     if(currSum == givenSum){
+        console.log(start, end);
+        console.log("found sum", start , " to ", end);
+        console.log("current Sum is ", currSum);
+        break;
+     }
+     
+     if(currSum <= givenSum){
+       
+      end++;
+        if(end < arr.length)
+            currSum += arr[end];
+       
+      console.log("inside if;  ",currSum); 
+     }else{
+        currSum -= arr[start];
+        start++; 
+       
+       console.log("currSum is: ", currSum);
+     }
+    
+   }
+    
+   return currSum; 
+    
+  }
+  
+  var inputArr = [5, 8, 1, 2, 15, 3];
+  var sumToFind = 9;
+  
+  console.log(__givenSumFn(inputArr, sumToFind));
