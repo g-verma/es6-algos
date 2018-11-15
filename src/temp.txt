@@ -1,0 +1,53 @@
+
+var arr = [];
+var istr = "abcd";
+var rmdup = [];
+
+
+istr.split("").forEach(function(item){
+    var tempobj ={
+        char: item,
+        count: 1
+    }
+
+    var tempindex = rmdup.indexOf(item);
+    if(tempindex == -1){
+        rmdup.push(item);
+        arr.push(tempobj);
+    }else{
+        arr[tempindex]["count"] = arr[tempindex]["count"] + 1;
+    }
+
+})
+
+var str = "";
+arr.forEach(function(obj){
+    str = str + obj ['char'] + obj['count'];
+})
+
+console.log(str);
+
+
+
+
+var arrayFirst = [1,5,7,10,12];
+var arraySec = [2,8,9,11,13];
+
+
+const __median = (arrayFirst, arraySec) =>{
+ 
+  var len = sortedArray.length;
+  var half = (len / 2) - 1;
+
+  var lowIndex = half; 
+  var highIndex = lowIndex + 1;
+  
+  var median = (sortedArray[lowIndex] + sortedArray[highIndex]) / 2;
+  
+  console.log("median is: ", median );
+  
+}
+
+var sortedArray = [1,2,5,7,8,9,10,11,12,13];
+console.log(__median(sortedArray));
+

@@ -848,8 +848,8 @@ const __givenSumFn = (arr, givenSum) => {
    for(var i =0; i < arr.length; i++){
      
      if(currSum == givenSum){
-        console.log(start, end);
-        console.log("found sum", start , " to ", end);
+        var first = end - 1;
+        console.log("sub set is : ", arr[first], arr[end]);
         console.log("current Sum is ", currSum);
         break;
      }
