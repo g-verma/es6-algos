@@ -1017,7 +1017,7 @@ const __maxSum = (arr) =>{
 
 var karr = [1,2,-11,4,7,-2,3];
 
-console.log("*** contiguous array sum: ", __maxSum(karr));
+console.log("contiguous array sum: ", __maxSum(karr));
 
 
 
