@@ -256,7 +256,7 @@ console.log("count updated: ", mop.count);
 
 console.log("indexOf: ", redd.lastIndexOf(4));
 
-console.log("indexOf: ", somp.indexOf("this"));
+console.log("indexOf: ", somp.indexOf(-1));
 
 seprator();
 
@@ -874,7 +874,150 @@ const __givenSumFn = (arr, givenSum) => {
     
   }
   
-  var inputArr = [5, 8, 1, 2, 15, 3];
+  var inputArr = [5, 8, 1, 8, 2, 15, 3];
   var sumToFind = 9;
   
-  console.log(__givenSumFn(inputArr, sumToFind));
+  console.log("this is given sum", __givenSumFn(inputArr, sumToFind));
+
+  seprator("2d arrays");
+//   var ddarr = [[1, 2],[3, 4],[5, 7]];
+//   console.log(ddarr[0]);
+
+
+  const __matrix = (rows, cols, defaultValue) => {
+    var arr = [];
+
+    for(var i=0; i < rows; i++){
+        arr.push([]);
+        arr[i].push( new Array(cols));
+  
+        for(var j=0; j < cols; j++){
+          arr[i][j] = defaultValue;
+        }
+    }
+  
+  return arr;
+  }
+
+console.log(__matrix( 3, 3,'x')); // 2 lines, 3 cols filled with 'x'
+console.log(__matrix( 4, 4, 0));  // 10 lines, 5 cols filled with 0
+
+seprator(" compare ");
+
+//Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+
+
+const __diffArray = (arr1, arr2) => {
+    var newArr = [];
+    
+    const onlyinFirst = (first, second) => {
+      for (var i = 0; i < first.length; i++) {
+      if(second.indexOf(first[i]) === -1) {
+        console.log("inx",second.indexOf(first[i]));  
+        newArr.push(first[i]);
+      }
+    }
+    }
+    onlyinFirst(arr1,arr2);
+    onlyinFirst(arr2,arr1);
+    
+    return newArr;
+    
+  }
+  
+  const diffArray = (arr1, arr2) => {
+    return arr1.concat(arr2).filter(item => !arr1.includes(item) || !arr2.includes(item))
+  }
+  
+  console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+  console.log(diffArray([1,2,3,5],[1,2,3,4,5])); //should return 4
+  console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"])); //should return ['diorite', 'pink wool'];
+  console.log(diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
+
+
+seprator(" max sum with contiguous array");
+/*The idea behind -
+A) Kadane's Algo - Basically I have to look for all contiguous sub-arrays of size 4, and also keep track of the maximum sum contiguous sub-array until the end. Whenever I find a new contiguous sub-array, I check if the current sum is greater than the max_sum so far and updates it accordingly.
+B) In the first loop is I am just generating the sum of the sub-array of the first 4 elements.
+C) In the second loop, I am traversing a sliding window - at each iteration, I am deducting the first element from left and adding next element to the right. And after doing this, updaing the max_so_far to its highest value, by comparing it to its previous hightest value.
+*/
+
+function findMaxAverage(nums, k) {
+
+	var curr_max = 0;
+	for (var i = 0; i < k; i++) {
+		curr_max += nums[i];
+	}
+
+	var max_so_far = curr_max;
+
+	for (var j = k; j < nums.length; j++) {
+		curr_max += (nums[j] - nums[j - k]);
+		// Each time we get a new curr_sum compare it with max_so_far and update max_so_far if it is greater than max_so_far    
+		max_so_far = Math.max(curr_max, max_so_far);
+	}
+	return max_so_far / k;
+}
+
+console.log(findMaxAverage([1, 12, -5, -6, 50, 3], 4));
+
+
+function kadane(arraySeq) {
+    var maxEndingHere = 0,
+        maxSoFar = 0,
+        arrayMEHTracker = [],
+        arrayLargestSubarray = [];
+    
+    arraySeq.forEach(function(el) {
+        maxEndingHere = Math.max(0,maxEndingHere + el);
+        if (maxEndingHere > 0) {
+            arrayMEHTracker.push(el);
+        } else {
+            arrayMEHTracker.length = 0;
+        }
+        
+        maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        if (maxSoFar === maxEndingHere) {
+            arrayLargestSubarray = arrayMEHTracker.slice(0); 
+        }
+    });
+    
+    return {
+        array: arrayLargestSubarray,
+        sum: maxSoFar
+    };
+}
+
+function printResults() {
+    var result = kadane([-2,1,-3,4,-1,2,1,-5,4]);
+    
+    function printArray() {
+        var stringPrint = "";
+        result.array.forEach(function(el) {
+            stringPrint += el;
+        });
+        return stringPrint
+    }
+    return "From largest subarray of: " +printArray() +" Sum is: " + result.sum;
+}
+
+
+
+const __maxSum = (arr) =>{
+    var currentSum = 0;
+    var globalMax = arr[0];
+
+    for(let i=0; i<arr.length; i++){
+        currentSum = arr[i] > currentSum + arr[i] ? arr[i] : currentSum + arr[i];
+        globalMax = globalMax > currentSum ? globalMax : currentSum;
+    }
+
+    return globalMax;
+}
+
+var karr = [1,2,-11,4,7,-2,3];
+
+console.log("*** contiguous array sum: ", __maxSum(karr));
+
+
+
