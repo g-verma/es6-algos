@@ -47,3 +47,21 @@ const __matrix = arr =>{
 
 var inputMatrix = [[1,2,3],[4,5,6],[7,8,9]]
 console.log(" -- ", __matrix(inputMatrix));
+
+const __frep = str =>{
+    var char = 0;
+    var len = str.length;
+    for(var i= 0; i < len; i++){
+        for(var j= i+1; j < len; j++){
+            if(str[i] === str[j]){
+                char++;
+
+                if(char >=2){ // here we are returning the character having count more than 2
+                    return str[i];
+                }
+            }
+        }
+    }
+}
+var inputString = "abcbbc";
+console.log("frep is : ", __frep(inputString))

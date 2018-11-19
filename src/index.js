@@ -124,7 +124,7 @@ const __repf = str =>{
     var char = 0;
 	for (var i = 0; i < str.length; i++){
         var len = str.length
-		for (var j = 0; j < len; j++){
+		for (var j = i+1; j < len; j++){
 			if (str[i] === str[j]) {
 				char++;
 				if (char >= 2) {
@@ -226,10 +226,10 @@ istr.split("").forEach(function(item){
 
 var str = "";
 arr.forEach(function(obj){
-    str = str + obj ['char'] + obj['count'];
+    str = str + obj['char'] + obj['count'];
 })
 
-console.log(str);
+console.log("dupp: ",str);
 seprator();
 seprator();
 
@@ -1024,28 +1024,44 @@ console.log("contiguous array sum: ", __maxSum(karr));
 
 seprator(" diagonal ");
 
-const __matrix = arr =>{
-    var len = arr.length;
-    var mlen = arr[0].length;
-    var output = " ";
-    for(var i = 0; i < len; i++){
-        j=0;
-        k=j;
+const __matg = array =>{
 
+    var rows = array.length;
+    var cols = array[0].length;
 
-
-        j-1;
-        k+1;
-
+    for (var n = 0; n < cols + rows - 1; n = n+1)
+    {
+        var r = n;
+        var c = 0;
+        var str = '';
+        
+        while (r >= 0 && c < cols)
+        {
+            if (r < rows)
+            str += array[r][c];
+            r -= 1;
+            c += 1;
+        }
+            console.log(str, '--');
     }
-
-    for(var j = 0; j < mlen; j++){
-
-    }
-
-    return output;
-
 };
 
 var inputMatrix = [[1,2,3],[4,5,6],[7,8,9]]
-console.log(" -- ", __matrix(inputMatrix));
+console.log(" -- ", __matg(inputMatrix));
+
+
+seprator("duplicate removal using Object ")
+
+const __rrd = str => {
+    var ostr = str.split('');
+    var obj = {};
+
+    for(var i=0; i < ostr.length; i++ ){
+        obj[ostr[i]] = "--";
+    }
+
+    return Object.keys(obj);
+}
+
+var ystr = "dssss"
+console.log("removed duplicates using obj: ", __rrd(ystr));
