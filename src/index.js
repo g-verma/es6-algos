@@ -1057,10 +1057,14 @@ const __rrd = str => {
     var obj = {};
 
     for(var i=0; i < ostr.length; i++ ){
-        obj[ostr[i]] = "--";
+        obj[ostr[i]] = i;
     }
 
-    return Object.keys(obj);
+    //return Object.keys(obj);
+    
+    for(var i in obj){
+        console.log(i, obj[i]);
+    }
 }
 
 var ystr = "dssss"
