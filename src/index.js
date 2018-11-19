@@ -1057,7 +1057,7 @@ const __rrd = str => {
     var obj = {};
 
     for(var i=0; i < ostr.length; i++ ){
-        obj[ostr[i]] = i;
+        obj[ostr[i]] = "";
     }
 
     //return Object.keys(obj);
