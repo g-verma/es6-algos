@@ -403,9 +403,6 @@ console.log("index of smallest : ", __ssmin(narr));
 
 
 
-
-
-
 // Greatest product is either (min1 * min2 * max1 || max1 * max2 * max3)
 computeProduct = unsorted => {
     
@@ -433,3 +430,31 @@ computeProduct = unsorted => {
 }
 var unsortedArray = [1,2,3,-8];
 console.log("largest product yielded from following integers: ", computeProduct(unsortedArray)); // 21000
+
+
+
+//qs
+const qc = arr => {
+  var len = arr.length;
+  
+  if (len < 2) return arr;
+
+  var countr = arr[0];
+
+  var ls = [];
+  var gr = [];
+
+  for (var i = 1; i < len; i++) {
+    if (arr[i] < countr) {
+      ls.push(arr[i]);
+    } else {
+      gr.push(arr[i]);
+    }
+  }
+
+  
+  return [...qc(ls), countr, ...qc(gr)];
+};
+
+var array = [5,8,4,7,2];
+console.log(qc(array));
