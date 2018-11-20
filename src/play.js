@@ -1,25 +1,24 @@
+function arr_diff (a1, a2) {
 
-const qc = arr => {
-  var len = arr.length;
-  
-  if (len < 2) return arr;
+    var a = [], diff = [];
 
-  var countr = arr[0];
-
-  var ls = [];
-  var gr = [];
-
-  for (var i = 1; i < len; i++) {
-    if (arr[i] < countr) {
-      ls.push(arr[i]);
-    } else {
-      gr.push(arr[i]);
+    for (var i = 0; i < a1.length; i++) {
+        a[a1[i]] = true;
     }
-  }
 
-  
-  return [...qc(ls), countr, ...qc(gr)];
-};
+    for (var i = 0; i < a2.length; i++) {
+        if (a[a2[i]]) {
+            delete a[a2[i]];
+        } else {
+            a[a2[i]] = true;
+        }
+    }
 
-var array = [5,8,4,7,2];
-console.log(qc(array));
+    for (var k in a) {
+        diff.push(k);
+    }
+
+    return diff;
+}
+
+console.log(arr_diff(['a', 'b'], ['a', 'b', 'c']));
