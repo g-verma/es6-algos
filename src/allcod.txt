@@ -1,0 +1,283 @@
+
+
+
+// var arr = [];
+// var istr = "abcdaaddb";
+// var rmdup = [];
+
+
+// istr.split("").forEach(function(item){
+//     var tempobj ={
+//         char: item,
+//         count: 1
+//     }
+
+//     var tempindex = rmdup.indexOf(item);
+
+//     if(tempindex == -1){
+//         rmdup.push(item);
+//         arr.push(tempobj);
+//     }else{
+//         arr[tempindex]["count"] = arr[tempindex]["count"] + 1;
+//     }
+
+// })
+
+// var str = "";
+// arr.forEach(function(obj){
+//     str = str + obj['char'] + obj['count'];
+// })
+
+// console.log("dupp: ",str);
+
+const __rrd = str => {
+    var ostr = str.split('');
+
+    var count = 1;
+/*
+    for(var i=1; i < ostr.length; i++ ){
+    
+        for(var j=0; j < count; j++){
+            
+            if(ostr[i] == ostr[j]) 
+                break;
+        }
+
+
+        if(j === count){
+            ostr[count] = ostr[i];
+            ++count;
+        }
+    
+    }
+    */
+
+    var obj = {};
+    for(var i=0; i < ostr.length; i++ ){
+        obj[ostr[i]] = "--";
+    }
+
+    // console.log(Object.keys(obj));
+    console.log(obj);
+    ostr.length = count;
+    return Object.keys(obj);
+}
+
+var ystr = "dssss"
+console.log(__rrd(ystr));
+
+
+
+
+
+
+const __repk = str => {
+    
+    var result = [];
+    var repChar = {};
+
+    for (var i=0; i<str.length; i++){
+        var char = str[i];
+        repChar[char] = repChar[char] >=1 ? repChar[char] + 1 : 1;
+        if (repChar[char] === 2){
+            result.push(char);
+        }
+    }
+
+    return repChar;
+}
+var inputStr = "abcda";
+console.log(__repk(inputStr));
+
+
+
+
+
+// var arr = [];
+// var istr = "abcdaaddb";
+// var rmdup = [];
+
+
+// istr.split("").forEach(function(item){
+//     var tempobj ={
+//         char: item,
+//         count: 1
+//     }
+
+//     var tempindex = rmdup.indexOf(item);
+
+//     if(tempindex == -1){
+//         rmdup.push(item);
+//         arr.push(tempobj);
+//     }else{
+//         arr[tempindex]["count"] = arr[tempindex]["count"] + 1;
+//     }
+
+// })
+
+// var str = "";
+// arr.forEach(function(obj){
+//     str = str + obj['char'] + obj['count'];
+// })
+
+// console.log("dupp: ",str);
+
+
+
+// const __fr = str =>{
+//     var arr = {};
+
+//     for (var i=0; i<str.length; i++){
+//         var char = str.charAt(i);
+
+//         if(arr[char])
+//             arr[char]++;
+//         else
+//             arr[char] = 1; // if not duplicate set value 1
+
+//     }
+
+//     return arr;
+// }
+
+// var inputString = "abccdd";
+// console.log("num length : ", __fr(inputString));
+
+
+const __repk = str => {
+    
+    var result = [];
+    var repChar = {};
+
+    for (var i=0; i<str.length; i++){
+        var char = str[i];
+        repChar[char] = repChar[char] >=1 ? repChar[char] + 1 : 1;
+        if (repChar[char] === 2){
+            result.push(char);
+        }
+    }
+
+    return repChar;
+}
+var inputStr = "abcda";
+console.log(__repk(inputStr));
+
+
+
+
+
+// duplicates in string
+const __repk = str => {
+    var len = str.length;
+    var result = [];
+    var repChar = {};
+
+    for (var i=0; i<len; i++){
+        var char = str[i];
+        repChar[char] = repChar[char] > = 1 ? repChar[char] + 1 : 1;
+        if (repChar[char] === 2){
+            result.push(char);
+            
+        }
+    }
+
+    return result
+}
+var inputStr = "abcabc";
+console.log(__repk(inputStr));
+seprator();
+
+
+const __df = str =>{
+    var output = {};
+
+    for(var i=0; i < str.length; i++){
+        if(output[str.charAt(i)]){
+            output[str.charAt(i)] = output[str.charAt(i)] + 1;
+        }else{
+            output[str.charAt(i)] = 1;
+        }
+    }
+
+    return output;
+}
+var ist = "abcc"
+console.log(__df(ist));
+
+
+
+
+var istr = "abcdaaddb";
+console.log("dh : ", __dup(istr));
+
+const __df = str =>{
+    var output = {};
+
+    for(var i=0; i < str.length; i++){
+        if(output[str.charAt(i){
+            output[str.charAt(i)] = output[str.charAt(i)] + 1;
+        }else{
+            output[str.charAt[i]] = 1;
+        }
+    }
+
+    return;
+}
+var ist = "aba"
+console.log(__df(ist));
+
+
+var str = "abcbefcaaaa";
+var obj={};
+for(var i =0; i<str.length;i++){
+    if(obj[str.charAt(i)]){
+        obj[str.charAt(i)] = obj[str.charAt(i)]+1;
+    }
+    else{
+        obj[str.charAt(i)] = 1;
+    }
+}
+console.log(obj);
+
+const __frep = str =>{
+    var len = str.length;
+    var count = 0;
+
+    for(var i = 0; i < len; i++){
+        for(var j = 1+i; j < len; j++){
+            if(str[i] === str[j]){
+              return str[i];
+            }    
+        }
+    }
+}
+
+
+var instr = "acddca";
+
+console.log("frep", __frep(instr));
+
+
+const __mx = arr =>{
+    var c = 0;
+    var gs = arr[0];
+
+    for(var i =0; i < arr.length; i++){
+        c = arr[i] > c + arr[i] ? arr[i] : c + arr[i];
+        gs = gs > c ? gs : c; 
+    }
+    return gs;
+}
+var iarr = [1,2,3,-2,7,-1];
+console.log("cgs max subarr: ",__mx(iarr));
+
+const __rev = string =>{
+    let result = "";
+    for (let ch of string){
+        result = ch + result;
+    }
+        return result;
+    
+};
+
+console.log(" rev : ", __rev(testStr));

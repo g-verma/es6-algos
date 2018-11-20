@@ -607,7 +607,7 @@ const __foc = num =>{
     var m1= (num.length / 2) - 1;
     var m2 = m1 + 1;
     
-   // var sum = num.reduce((a,b)=> a+b,0); // method one
+   // var sum = num.reduce((a,b)=> a+b,0); // add method one
     
     const __arrSum = arr =>{ // method 2
         var summ = 0;
@@ -1069,3 +1069,16 @@ const __rrd = str => {
 
 var ystr = "dssss"
 console.log("removed duplicates using obj: ", __rrd(ystr));
+
+const __mx = arr =>{
+    var c = 0;
+    var gs = arr[0];
+
+    for(var i =0; i < arr.length; i++){
+        c = arr[i] > c + arr[i] ? arr[i] : c + arr[i];
+        gs = gs > c ? gs : c; 
+    }
+    return gs;
+}
+var iarr = [1,2,3,-2,7,-1];
+console.log("cgs max subarr: ",__mx(iarr));

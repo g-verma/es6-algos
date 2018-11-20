@@ -1,0 +1,435 @@
+
+//num length
+var arr = [];
+var istr = "abcdaaddb";
+var rmdup = [];
+
+istr.split("").forEach(function(item){
+    var tempobj ={
+        char: item,
+        count: 1
+    }
+
+    var tempindex = rmdup.indexOf(item);
+
+    if(tempindex == -1){
+        rmdup.push(item);
+        arr.push(tempobj);
+    }else{
+        arr[tempindex]["count"] = arr[tempindex]["count"] + 1;
+    }
+
+})
+
+var str = "";
+arr.forEach(function(obj){
+    str = str + obj['char'] + obj['count'];
+})
+
+console.log("dupp: ",str);
+
+
+
+//remove dup
+const __rrd = str => {
+    var ostr = str.split('');
+    var count = 1;
+
+    for(var i=1; i < ostr.length; i++ ){
+        for(var j=0; j < count; j++){
+            if(ostr[i] == ostr[j]) 
+                break;
+        }
+        if(j === count){
+            ostr[count] = ostr[i];
+            ++count;
+        }
+    }
+
+    ostr.length = count;
+    return ostr;
+}
+
+
+
+var ystr = "dssss"
+console.log(__rrd(ystr));
+
+
+//remove dup using obj
+const __rdnew = str => {
+    var ostr = str.split('');
+    var obj = {};
+    
+    for(var i=0; i < ostr.length; i++ ){
+         obj[ostr[i]] = "";
+    }
+    return Object.keys(obj);
+}
+
+var ystr = "dssss"
+console.log("using object", __rdnew(ystr));
+
+
+
+//char num length
+const __repk = str => {
+    
+    var result = [];
+    var repChar = {};
+
+    for (var i=0; i<str.length; i++){
+        var char = str[i];
+        repChar[char] = repChar[char] >=1 ? repChar[char] + 1 : 1;
+        if (repChar[char] === 2){
+            result.push(char);
+        }
+    }
+
+    return repChar;
+}
+var inputStr = "abcda";
+console.log(__repk(inputStr));
+
+
+
+// num length
+const __fr = str =>{
+    var arr = {};
+
+    for (var i=0; i<str.length; i++){
+        var char = str.charAt(i);
+
+        if(arr[char])
+            arr[char]++;
+        else
+            arr[char] = 1; // if not duplicate set value 1
+
+    }
+
+    return arr;
+}
+
+var inputString = "abccdd";
+console.log("num length : ", __fr(inputString));
+
+
+
+
+//num length new
+const __df = str =>{
+    var output = {};
+
+    for(var i=0; i < str.length; i++){
+        if(output[str.charAt(i)]){
+            output[str.charAt(i)] = output[str.charAt(i)] + 1;
+        }else{
+            output[str.charAt(i)] = 1;
+        }
+    }
+
+    return output;
+}
+var ist = "abcc"
+console.log(__df(ist));
+
+
+
+
+// duplicates in string
+const __repk = str => {
+    var len = str.length;
+    var result = [];
+    var repChar = {};
+
+    for (var i=0; i<len; i++){
+        var char = str[i];
+        repChar[char] = repChar[char] >=1 ? repChar[char] + 1 : 1;
+        if (repChar[char] === 2){
+            result.push(char);
+            
+        }
+    }
+
+    return result
+}
+var inputStr = "abcab";
+console.log(__repk(inputStr));
+
+
+
+//num length
+var str = "abcc";
+var obj={};
+for(var i =0; i<str.length;i++){
+    if(obj[str.charAt(i)]){
+        obj[str.charAt(i)] = obj[str.charAt(i)]+1;
+    }
+    else{
+        obj[str.charAt(i)] = 1;
+    }
+}
+console.log(obj);
+
+
+
+
+//first rep letter
+const __frep = str =>{
+    var len = str.length;
+    var count = 0;
+
+    for(var i = 0; i < len; i++){
+        for(var j = 1+i; j < len; j++){
+            if(str[i] === str[j]){
+              return str[i];
+            }    
+        }
+    }
+}
+
+var instr = "acddca";
+console.log("frep", __frep(instr));
+
+
+
+//sub array max kedene's algo
+const __mx = arr =>{
+    var c = 0;
+    var gs = arr[0];
+
+    for(var i =0; i < arr.length; i++){
+        c = arr[i] > c + arr[i] ? arr[i] : c + arr[i];
+        gs = gs > c ? gs : c; 
+    }
+    return gs;
+}
+var iarr = [1,2,3,-2,7,-1];
+console.log("cgs max subarr: ",__mx(iarr));
+
+
+
+
+//rev string
+const __rev = string =>{
+    let result = "";
+    for (let ch of string){
+        result = ch + result;
+    }
+        return result;
+};
+
+var testStr = "hello";
+console.log(" rev : ", __rev(testStr));
+
+
+
+//rev integer
+const __rev = num =>{
+    var ss = num.toString();
+    
+    let result = "";
+    for (let ch of ss){
+        result = ch + result;
+    }
+        return result;
+};
+
+var testStr = 12345;
+console.log(" rev : ", __rev(testStr));
+
+
+
+
+//non repeative    
+const __nonrep = str => {
+    var char = {};
+
+    for (let i = 0; i < str.length; i++) {
+        if (char[str[i]]) {
+            char[str[i]] ++;
+        } else {
+            char[str[i]] = 1;
+        }
+    }
+    for (let i = 0; i < str.length; i++) {
+        if (char[str[i]] === 1) {
+            return str[i];
+        }
+    }
+}
+var inputString = "abbaz";
+console.log("First Non-Repeating char is: ", __nonrep(inputString));
+
+
+
+//pali
+const __pali = string => {
+    var slen = string.length;
+    for(var i=0; i < slen / 2; i++){
+        if(string[i] !== string[slen - i - 1])
+        return false;
+    }
+    return true;
+}
+
+var pstr = "kanak";
+console.log("Pali is : ",__pali(pstr));
+
+
+
+
+//normal fibbi
+const __fb = (num) => {
+    if(num == 0 || num <=1)
+      return num;
+    else{
+      return  __fb(num - 1) + __fb(num - 2) ;
+    }
+}
+console.log("fb is: ", __fb(10));
+
+
+//fibbi with memo
+const fb = (num,temp) => {
+    
+  if(temp[num])
+    return temp[num];
+    
+  if(num == 0 || num <=1)
+    return num;
+  else{
+    return temp[num] = fb(num - 1, temp) + fb(num - 2, temp);
+  }
+    
+}
+console.log("with memo: ",fb(10,[]));
+
+
+
+
+// duplicate strings
+const __duplen = istr =>{
+var arr = [];
+var rmdup = [];
+
+istr.split("").forEach(item=>{
+    var tempobj ={
+        char: item,
+        count: 1
+    }
+
+    var tempindex = rmdup.indexOf(item);
+
+    if(tempindex == -1){
+        rmdup.push(item);
+        arr.push(tempobj);
+    }else{
+        arr[tempindex]["count"] = arr[tempindex]["count"] + 1;
+    }
+
+})
+
+    var str = "";
+    arr.forEach(obj =>{
+        str = str + obj['char'] + obj['count'];
+    })
+
+    return str;
+}
+
+var istr = "abca";
+console.log("dupp: ",__duplen(istr));
+
+
+//playing with Object
+var redd = [1,2,4,5];
+var ff = ["apple","banana","butter"]
+var somp = "this is example"
+
+var mop ={
+    char: "hehehe",
+    count: 1
+}
+
+
+var barr = [];
+var newarr = [];
+
+barr.push(mop);
+console.log("inserting obj in array: ",barr);
+
+
+var last = ff[ff.length - 2]
+console.log("array last item : ", last);
+
+
+mop["count"] = mop["count"] + 1;
+console.log("mop count updated: ", mop.count);
+
+
+console.log("indexOf redd integer : ", redd.lastIndexOf(4)); // here 4 is element
+console.log("indexOf somp: ", somp.indexOf(7));   // as 7 is not there in array so showing -1
+
+
+
+const __obIn = () => {
+
+    for (let i = 0; i < 5; i++) {
+           barr.push(mop);
+    }
+    return barr;          
+}
+
+console.log("updated barr: ", __obIn());
+
+
+
+//smallst min 
+const __ssmin = arr => {
+    var lowest = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+     if (arr[i] < arr[lowest]) {
+            lowest = i;
+        }
+    }
+    return lowest;
+   }
+
+var narr = [5, 8, 15, 10, 200, 1];
+console.log("index of smallest : ", __ssmin(narr));
+
+
+
+
+
+
+
+// Greatest product is either (min1 * min2 * max1 || max1 * max2 * max3)
+computeProduct = unsorted => {
+    
+  sortIntegers = (a, b) => {
+        return a - b;
+  }
+
+  var sortedArray = unsorted.sort(sortIntegers),
+    product1 = 1,
+    product2 = 1,
+  
+    array_n_element = sortedArray.length - 1;
+
+    for (var i = array_n_element; i > array_n_element - 3; i--) {
+      product1 = product1 * sortedArray[i];
+  }
+
+  product2 = sortedArray[0] * sortedArray[1] * sortedArray[array_n_element];
+
+  if (product1 > product2){ 
+    return product1;
+  }
+
+  return product2;
+}
+var unsortedArray = [1,2,3,-8];
+console.log("largest product yielded from following integers: ", computeProduct(unsortedArray)); // 21000
