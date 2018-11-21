@@ -538,3 +538,56 @@ console.log("sorted Bs: ", __bsrt(inparr));
 }
 
 console.log(arr_diff(['a', 'b'], ['a', 'b', 'c']));
+
+
+
+
+//IIFunctions
+//syntax    ;(function(){}) ();
+
+;(function(){
+})();
+
+;!function(){
+}();
+
+;-function(){
+}();
+
+;+function(){
+}();
+
+;~function(){
+}();
+
+
+//subset sum
+const __subSum = (arr, el) =>{
+
+    var len = arr.length;
+    var obj = {}; // a blank object
+    var count = 0;
+    var currentSum = 0;
+
+    for(var i = 0; i<len; i++){
+        currentSum = arr[i];
+
+        if(currentSum == el){
+            count++;
+        }
+
+        if(obj.hasOwnProperty(currentSum-el)){
+            count += obj[currentSum-el];
+        }
+
+        obj[currentSum] = obj.hasOwnProperty(currentSum) ? obj[currentSum] + 1 : 1;
+
+    }
+    
+    return count;
+}
+var inarr = [10,2,-2,-20,10];
+var sumToSearch = -10;
+console.log(__subSum(inarr, sumToSearch));
+
+   
