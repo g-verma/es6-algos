@@ -433,7 +433,32 @@ console.log("largest product yielded from following integers: ", computeProduct(
 
 
 
-//qs
+//linear search
+const __ls = (arr,el) =>{
+    var len = arr.length;
+    var flag = false;
+
+    for(var i = 0; i < len -1; i++){
+        if(arr[i] == el ){
+            flag = true;
+            break;
+        }
+    }
+
+    if(flag)
+        return true;
+    else
+        return false;
+}
+
+var inarr = [5,4,7,8,6,2,1];
+var ee = 5;
+console.log(__ls(inarr,ee));
+
+
+
+
+//quick sor
 const qc = arr => {
   var len = arr.length;
   
@@ -458,6 +483,35 @@ const qc = arr => {
 
 var array = [5,8,4,7,2];
 console.log(qc(array));
+
+
+
+
+// sorted bbs
+const __bsrt = arr =>{
+    var done = true;
+
+    for(var i=0; i< arr.length; i++){
+      for(var j=0; j<arr.length; j++){       
+            if(arr[j] > arr[j+1]){
+                
+                var temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp;
+                done = false;
+            }
+        }
+        if(done) return;
+        
+    }
+
+    return arr;    
+}
+
+var inparr = [188, 5, 8, 1, 2, 15, 3];
+console.log("sorted Bs: ", __bsrt(inparr));
+
+
 
 
 // diff in arrfunction arr_diff (a1, a2) {
