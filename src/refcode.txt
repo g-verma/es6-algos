@@ -618,6 +618,39 @@ var nums = 5;
 console.log(__stc(nums))
 
 
+
+
+//strcase 
+const __stc = n =>{
+    for(var i = 1; i < n; i++){
+        console.log(' '.repeat(n - i) + '#'.repeat(i));        
+    }
+}
+
+__stc(5);
+
+
+
+
+const __stcase = n => {
+    for (let i = 1; i <= n; i++) {
+        let output = []
+        let j = 0;
+    for( ; j<n-i; j++){
+        output.push(' ');
+    }
+    for(;j<n;j++){
+        output.push('#');
+    }
+    console.log(output.join(''))
+  }
+}
+
+__stcase(4);
+
+
+
+
 //pyramd
 function printN(n) {
     var hash = '';
