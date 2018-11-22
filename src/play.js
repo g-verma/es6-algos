@@ -1,16 +1,12 @@
-const __stc = n =>{
-
-    var res = [n+1];
-    res[0] = 1;
-    res[1] = 1;
-    res[2] = 2;
-
-    for(var i = 3; i <= n; i++){
-        res[i] = res[i-1] + res[i-2] + res[i-3];
+const __ffs = n =>{
+    if(n == 1 || n == 0)
+        return 1;
+    else if(n == 2)
+        return 2; 
+    else {
+        var output = __ffs(n-3) + __ffs(n-2) + __ffs(n-1);
+        return output;
     }
-
-    return res[n];
 }
 
-
-console.log(__stc(3));
+console.log("ways are:", __ffs(4));

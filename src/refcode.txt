@@ -700,4 +700,33 @@ function printN(n) {
   }
 chestBoard(8);
   
-     
+//staircase combinations using dynamic programming 
+const __stc = n =>{   //complexity is O(n)
+    var res = [n+1];
+    res[0] = 1;
+    res[1] = 1;
+    res[2] = 2;
+
+    for(var i = 3; i <= n; i++){
+        res[i] = res[i-1] + res[i-2] + res[i-3];
+    }
+    return res[n];
+}
+console.log(__stc(3));  // input 3, output 4 :: input 4, ouput 7
+
+
+//staircase using recursive, time complexity is exponentional
+const __fstep = n =>{
+
+    if (n == 1 || n == 0)  
+        return 1; 
+    else if (n == 2)  
+        return 2; 
+      
+    else 
+        return __fstep(n - 3) + __fstep(n - 2) + __fstep(n - 1);  
+               
+}
+
+console.log('ways to climb: ', __fstep(4));  // input 3, output 4 :: input 4, ouput 7
+
