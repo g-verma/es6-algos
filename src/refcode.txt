@@ -400,6 +400,43 @@ const __ssmin = arr => {
 var narr = [5, 8, 15, 10, 200, 1];
 console.log("index of smallest : ", __ssmin(narr));
 
+//stack 
+class Stack{
+   
+    constructor(){
+      this.items = [];
+      this.push = this.push.bind( this );
+    }
+
+    push( item ) {
+      this.items.push( item );
+    }
+    
+    pop() {
+      this.items.pop();
+    }
+
+    peek() {
+        console.log( 'Stack.peek()' );
+        console.log(this.items.splice( this.items.length - 1, 1 )[0] );
+      }
+    printStack() {
+      for( let i = 0; i < this.items.length; i = i + 1 ){
+        console.log( this.items[ i ] );
+      }
+    }
+    
+  }
+  
+  var stack = new Stack();
+  
+  stack.push(10);
+  stack.push(20);
+  stack.push(30);
+  
+ stack.printStack();
+ stack.peek();
+ console.log( stack.items );
 
 
 
@@ -769,9 +806,6 @@ console.log('smallest subarray having sum greater than sum: ', __smallWi(arri,ar
 
 
 
-
-
-//shortest path
 const problem = {
     start: {A: 5, B: 2},
     A: {C: 4, D: 2},
@@ -781,30 +815,34 @@ const problem = {
     finish: {}
   };
   
-  const lowestCostNode = (costs, processed) => {
+
+const lowestCostNode = (costs, processed) => {
+
     return Object.keys(costs).reduce((lowest, node) => {
+      
       if (lowest === null || costs[node] < costs[lowest]) {
+       
         if (!processed.includes(node)) {
           lowest = node;
         }
+     
       }
+
       return lowest;
     }, null);
-  };
-  
-  // function that returns the minimum cost and path to reach Finish
-  const dijkstra = (graph) => {
-  
-    // track lowest cost to reach each node
+
+};
+
+
+
+const shortPath = graph => {
     const costs = Object.assign({finish: Infinity}, graph.start);
   
-    // track paths
     const parents = {finish: null};
     for (let child in graph.start) {
       parents[child] = 'start';
     }
   
-    // track nodes that have already been processed
     const processed = [];
   
     let node = lowestCostNode(costs, processed);
@@ -843,5 +881,11 @@ const problem = {
     return results;
   };
   
-  console.log(dijkstra(problem));
+  console.log("shortest path is: ", shortPath(problem));
+
+
+
+
+
+
 

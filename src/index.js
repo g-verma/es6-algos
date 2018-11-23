@@ -261,12 +261,9 @@ console.log("indexOf: ", somp.indexOf(-1));
 seprator();
 
 const __obIn = () => {
-
     for (let i = 0; i < 5; i++) {
-         
            barr.push(mop);
         }
-       
         return barr;          
     }
 

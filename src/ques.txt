@@ -1,0 +1,15 @@
+Q1. Run Length Encoding
+Q2. Smallest subarray with sum greater than a given value
+Q3. Flattening a Linked List
+Q4. Maximum height of the staircase
+Q5. How to determine if a binary tree is height-balanced?
+Q6. Count the subarrays having product less than k
+Q7. Second most repeated string in a sequence
+XX Q8. Smallest subarray with sum greater than x  ---
+Q9. Egg Dropping Puzzle 
+Q10. Stock buy and sell
+Q11. Merge Sort
+Q12. Quick Sort
+Q13. Ugly Numbers
+Q14. Implement a Queue in Javascript, Implement a Stack in Javascript.
+Q15. Number Formation
