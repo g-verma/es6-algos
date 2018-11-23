@@ -618,7 +618,11 @@ var nums = 5;
 console.log(__stc(nums))
 
 
-
+//reverse a string with spread
+function reverse(str){
+    return [...str].reverse().join('  ');
+  }
+console.log(reverse("hello"));
 
 //strcase 
 const __stc = n =>{
