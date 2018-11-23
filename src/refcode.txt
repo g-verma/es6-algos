@@ -732,6 +732,45 @@ const __fstep = n =>{
 console.log('ways to climb: ', __fstep(4));  // input 3, output 4 :: input 4, ouput 7
 
 
+
+
+// smallest subarray with sum greater than given sum , time complexity O(n), can also calulate negative numbers
+const __smallWi = (arr, n, x) =>{
+    var currSum = 0,
+     minlen = n+1,
+     start = 0, 
+     end = 0;
+
+     while(end < n){
+        while (currSum <= x && end < n) {
+            if (currSum <= 0 && x > 0) 
+            { 
+                start = end; 
+                currSum = 0; 
+            } 
+  
+            currSum += arr[end++]; 
+        }
+
+        while(currSum > x && start < n) {
+            if (end - start < minlen) 
+                minlen = end - start; 
+            currSum -= arr[start++]; 
+        }
+     }
+    
+     return minlen; 
+
+}
+
+var arri = [- 8, 1, 4, 2, -6];
+var x =6;
+console.log('smallest subarray having sum greater than sum: ', __smallWi(arri,arri.length, x));
+
+
+
+
+
 //shortest path
 const problem = {
     start: {A: 5, B: 2},
