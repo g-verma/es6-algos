@@ -495,7 +495,7 @@ console.log(__ls(inarr,ee));
 
 
 
-//quick sor
+//quick sort
 const qc = arr => {
   var len = arr.length;
   

@@ -95,6 +95,31 @@ const secMaxRep = arr =>{
 var str = "abaccc";  // here 'c' is first most repeative and 'a' is 2nd most repeative;
 console.log("Second MF Charater is : ",secMaxRep(str));
 
+//quick sort
+const qc = arr => {
+  var len = arr.length;
+  
+  if (len < 2) return arr;
+
+  var countr = arr[0];
+
+  var ls = [];
+  var gr = [];
+
+  for (var i = 1; i < len; i++) {
+    if (arr[i] < countr) {
+      ls.push(arr[i]);
+    } else {
+      gr.push(arr[i]);
+    }
+  }
+
+  
+  return [...qc(ls), countr, ...qc(gr)];
+};
+
+var array = [5,8,4,7,2];
+console.log(qc(array));
 
 
 //stack
@@ -151,3 +176,30 @@ const __sumLessK = (a, k)  =>{
 } 
 var arrin = [1, 2, 3, 4];   //output is 7
 console.log("product of sum less than k is:", __sumLessK(arrin, 10));
+
+
+
+//subset sum
+const __subSum = (arr, el) =>{
+
+    var len = arr.length;
+    var obj = {}; // a blank object
+    var count = 0;
+    var currentSum = 0;
+
+    for(var i = 0; i<len; i++){
+        currentSum = arr[i];
+        if(currentSum == el){
+            count++;
+        }
+        if(obj.hasOwnProperty(currentSum-el)){
+            count += obj[currentSum-el];
+        }
+        obj[currentSum] = obj.hasOwnProperty(currentSum) ? obj[currentSum] + 1 : 1;
+    }
+    return count;
+}
+
+var inarr = [10,2,-2,-20,10];
+var sumToSearch = -10;
+console.log(__subSum(inarr, sumToSearch));
