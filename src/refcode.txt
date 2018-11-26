@@ -440,6 +440,113 @@ class Stack{
 
 
 
+//singly linked list
+
+class  Node{
+    constructor(value,next){
+        this.value = value;
+        this.next = next;
+    }
+}
+
+
+class LinkedList{
+    constructor(){
+        this.head = null;
+        this.tail = null;
+    }
+
+    addToHead(value){
+        var node = new Node(value,null);
+
+        if(this.head){
+           node.next = this.head;
+        }else{
+            this.tail = node;
+        }
+        this.head = node;
+    }
+
+    addToTail(value){
+        var node = new Node(value,null);
+
+        if(this.tail){
+            this.tail.next = node;
+
+        }else{ 
+            this.head = node;
+        }
+        
+        this.tail = node;
+      }
+
+    showList(){
+        if(!this.head) 
+            return null;
+
+        var current = this.head;
+        var listy = [];
+
+        while(current){
+          listy += "➔"+ current.value;
+         
+          current = current.next;
+        }
+        
+        console.log(listy); // returning linked list 
+      }     
+      
+      
+   remove(value) {
+      let current = this.head;
+
+      //first node remove
+      if (current.value === value) {
+        this.head = current.next;
+      } else {
+        let previous = current;
+        while (current.next) {
+      
+          // middle value remove
+          if (current.value === value) {
+            previous.next = current.next;
+            break;
+          }
+
+          previous = current;
+          current = current.next;
+        }
+        // last node remove
+        if (current.value === value) {
+          previous.next = null;
+        }
+      }
+
+    }
+
+}
+
+
+  const list = new LinkedList();
+  
+  list.addToHead(1)
+  list.addToHead(5) 
+
+  list.remove(5);
+
+  list.addToTail(123)
+  list.addToTail(503)
+  
+  list.addToHead(100)
+  list.showList();
+
+
+
+
+
+
+
+
 // Greatest product is either (min1 * min2 * max1 || max1 * max2 * max3)
 computeProduct = unsorted => {
     
