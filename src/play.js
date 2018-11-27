@@ -1,3 +1,5 @@
+
+//Binary tree
 class Tree {
     constructor(value) {
         this.value = value;
@@ -57,6 +59,7 @@ class Tree {
 
 
 var tree = new Tree(2,);
+console.log();
 
 tree.insert(6);
 tree.insert(20);
