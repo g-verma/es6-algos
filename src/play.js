@@ -1,51 +1,72 @@
-const __max = (a,b) =>{
-    return (a>b)?a:b;  //returning maximum of two integers
-}
-
-const __eggDrop = (n,k)=>{
-    var ef = [[n+1],[k+1]];
-    var res;
-    var i,j,x;
-
-    for(i = 1; i <=n; i++){
-        ef[[i],[1]] = 1;
-        ef[[i],[0]] = 0;
+class Tree {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
     }
 
-    for(j = 1; j <= k; j++){
-        ef[[1],[j]]=j;
-
-    }
-
-    for(i=2; i<=n; i++){
-        for(j=2; j<=k; j++){
-
-            ef[[i],[j]] = Number.MAX_SAFE_INTEGER;
-            
-            for(x=1; x<=j; x++){
-                res = 1 + __max(ef[[i-1],[x-1]], ef[[i],[j-x]]);
-                if(res < ef[[i],[j]]){
-                    ef[[i],[j]] = res;
-                }
-            }
+    insert(value) {
+        if (value <= this.value) {
+            if (!this.left) this.left = new Tree(value);
+            else this.left.insert(value);
+        } else {
+            if (!this.right) this.right = new Tree(value);
+            else this.right.insert(value);
         }
     }
 
-    return ef[[n],[k]];
+    contains(value) {
+        if (value === this.value) return true;
+        if (value < this.value) {
+            if (!this.left) return false;
+            else return this.left.contains(value);
+        } else {
+            if (!this.right) return false;
+            else return this.right.contains(value);
+        }
+    }
 
+    depthFirstTraverse(order, callback) {
+        order === "pre" && callback(this.value);
+        this.left && this.left.depthFirstTraverse(order, callback);
+        order === "in" && callback(this.value);
+        this.right && this.right.depthFirstTraverse(order, callback);
+        order === "post" && callback(this.value);
+    }
+
+    breadthFirstTraverse(callback) {
+        const queue = [this];
+        while (queue.length) {
+            const root = queue.shift();
+            callback(root.value);
+            root.left && queue.push(root.left);
+            root.right && queue.push(root.right);
+        }
+    }
+
+    getMinValue() {
+        if (this.left) return this.left.getMinValue();
+        return this.value;
+    }
+
+    getMaxValue() {
+        if (this.right) return this.right.getMaxValue();
+        return this.value;
+    }
 }
 
-var n = 2, k = 36;    // for n:2   k:36   output is 8
-console.log("egg droppped: ", __eggDrop(n,k));   //output is 4
+
+var tree = new Tree(2,);
+
+tree.insert(6);
+tree.insert(20);
+tree.insert(4);
+tree.insert(7);
+
+console.log(tree.contains(20));
+console.log(tree.getMinValue());
 
 
 
 
-
-
-const __twoEggDrop = k =>{ 
-   return Math.ceil((-1.0 + Math.sqrt(1 + 8*k))/2.0); 
-} 
-
-var k = 100; 
-console.log("two egg drops", __twoEggDrop(k));
+console.log(tree);

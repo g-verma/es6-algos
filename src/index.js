@@ -1082,13 +1082,31 @@ console.log("cgs max subarr: ",__mx(iarr));
 
 
 
-//egg drop with Math fn
+
+//square root function 
+const __sqrt = (n, g) => {    // g is guess number
+    if (!g) {  
+        g = n / 2.0;
+    }
+    var d = n / g;         // d is divide
+    var ng = (d + g) / 2.0;
+    if (g == ng) {          
+        return g;
+    }
+    return __sqrt(n, ng);
+}
+console.log(__sqrt(25)); 
+
+
+//egg drop with Math fn, 2 eggs and k floors
+//because in trial of 10 floors and 2 eggs we can never exceed more than 4 trials.
 const __twoEggDrop = k =>{ 
-    return Math.ceil((-1.0 + Math.sqrt(1 + 8*k))/2.0); 
+    return Math.ceil(-1.0 + __sqrt(1 + 8*k)/2.0); 
  } 
  
- var k = 100; 
- console.log("two egg drops", __twoEggDrop(k));
+ var k = 10; 
+ console.log("two egg drops", __twoEggDrop(k));  //output 4
+
 
 
 
