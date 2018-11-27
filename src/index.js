@@ -1457,3 +1457,8 @@ tree.insert(7);
 tree.insert(8);
 tree.insert(9);
 console.log(tree);
+
+console.log("search value found: ", tree.search(8));
+
+const cb = x =>{ return console.log(x);}
+console.log("pre depth first", tree.depthFirstTraverse('post',cb));
