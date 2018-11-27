@@ -1079,3 +1079,136 @@ const __mx = arr =>{
 }
 var iarr = [1,2,3,-2,7,-1];
 console.log("cgs max subarr: ",__mx(iarr));
+
+
+
+
+seprator("--------- singly linnked list ------------")
+class LinkedList{
+    constructor(){
+        this.head = null;
+        this.tail = null;
+    }
+
+    addToHead(value){
+        var node = new Node(value,null);
+
+        if(this.head){
+           node.next = this.head;
+        }else{
+            this.tail = node;
+        }
+        this.head = node;
+    }
+
+    addToTail(value){
+        var node = new Node(value,null);
+
+        if(this.tail){
+            this.tail.next = node;
+
+        }else{ 
+            this.head = node;
+        }
+        
+        this.tail = node;
+      }
+
+    showList(){
+        if(!this.head) 
+            return null;
+
+        var current = this.head;
+        var listy = [];
+
+        while(current){
+          listy += "➔"+ current.value;
+         
+          current = current.next;
+        }
+        
+        console.log(listy); // returning linked list 
+      }     
+      
+      
+   remove(value) {
+      let current = this.head;
+
+      //first node remove
+      if (current.value === value) {
+        this.head = current.next;
+      } else {
+        let previous = current;
+        while (current.next) {
+      
+          // middle value remove
+          if (current.value === value) {
+            previous.next = current.next;
+            break;
+          }
+
+          previous = current;
+          current = current.next;
+        }
+        // last node remove
+        if (current.value === value) {
+          previous.next = null;
+        }
+      }
+
+    }
+
+}
+
+
+  const list = new LinkedList();
+  
+  list.addToHead(1)
+  list.addToHead(5) 
+
+  list.remove(5);
+
+  list.addToTail(123)
+  list.addToTail(503)
+  
+  list.addToHead(100)
+  list.showList();
+
+
+
+
+  seprator(" ----- BlockChain ------")
+  
+  //const sha256 = require('js-sha256') // We need sha256 encryption
+
+  class Block {
+    constructor(index, timestamp, data, prevHash) {
+      this.index = index;
+      this.timestamp = timestamp;
+      this.data = data;
+      this.prevHash = prevHash;
+    //   this.thisHash = sha256(
+    //     this.index + this.timestamp + this.data + this.prevHash
+    //   );
+    }
+  }
+  
+  const createGenesisBlock = () => new Block(0, Date.now(), 'Genesis Block', '0');
+  
+  const nextBlock = (lastBlock, data) =>
+    new Block(lastBlock.index + 1, Date.now(), data, lastBlock.thisHash);
+  
+  const createBlockchain = num => {
+    const blockchain = [createGenesisBlock()];
+    let previousBlock = blockchain[0];
+  
+    for (let i = 1; i < num; i += 1) {
+      const blockToAdd = nextBlock(previousBlock, `This is block #${i}`);
+      blockchain.push(blockToAdd);
+      previousBlock = blockToAdd;
+    }
+    console.log(blockchain);
+  };
+  
+  const lengthToCreate = 3;
+  createBlockchain(lengthToCreate);

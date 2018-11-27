@@ -1,209 +1,75 @@
-
-class  Node{
-    constructor(value,next){
+class Node {
+    constructor(key, value) {
+        this.key = key;
         this.value = value;
-        this.next = next;
+        this.next = null;
     }
 }
 
-
-class LinkedList{
-    constructor(){
-        this.head = null;
-        this.tail = null;
+class Table {
+    constructor(size) {
+        this.cells = new Array(size);
     }
 
-    addToHead(value){
-        var node = new Node(value,null);
-
-        if(this.head){
-           node.next = this.head;
-        }else{
-            this.tail = node;
-        }
-        this.head = node;
+    hash(key) {
+        let total = 0;
+        for (let i = 0; i < key.length; i++) total += key.charCodeAt(i);
+        return total % this.cells.length;
     }
 
-    addToTail(value){
-        var node = new Node(value,null);
-
-        if(this.tail){
-            this.tail.next = node;
-
-        }else{ 
-            this.head = node;
+    insert(key, value) {
+        const hash = this.hash(key);
+        if (!this.cells[hash]) {
+            this.cells[hash] = new Node(key, value);
+        } else if (this.cells[hash].key === key) {
+            this.cells[hash].value = value;
+        } else {
+            let node = this.cells[hash];
+            while (node.next) {
+                if (node.next.key === key) {
+                    node.next.value = value;
+                    return;
+                }
+                node = node.next;
+            }
+            node.next = new Node(key, value);
         }
-        
-        this.tail = node;
-      }
+    }
 
-    showList(){
-        if(!this.head) 
+    get(key) {
+        const hash = this.hash(key);
+        if (!this.cells[hash]) return null;
+        else {
+            let node = this.cells[hash];
+            while (node) {
+                if (node.key === key) return node.value;
+                node = node.next;
+            }
             return null;
-
-        var current = this.head;
-        var listy = [];
-
-        while(current){
-          listy += "➔"+ current.value;
-         
-          current = current.next;
         }
-        
-        console.log(listy); // returning linked list 
-      }     
-      
-      
-   remove(value) {
-      let current = this.head;
-
-      //first node remove
-      if (current.value === value) {
-        this.head = current.next;
-      } else {
-        let previous = current;
-        while (current.next) {
-      
-          // middle value remove
-          if (current.value === value) {
-            previous.next = current.next;
-            break;
-          }
-
-          previous = current;
-          current = current.next;
-        }
-        // last node remove
-        if (current.value === value) {
-          previous.next = null;
-        }
-      }
-
     }
 
+    getAll() {
+        const table = [];
+        for (let i = 0; i < this.cells.length; i++) {
+            const cell = [];
+            let node = this.cells[i];
+            while (node) {
+                cell.push(node.value);
+                node = node.next;
+            }
+            table.push(cell);
+        }
+        return table;
+    }
 }
 
 
-  const list = new LinkedList();
-  
-  list.addToHead(1)
-  list.addToHead(5) 
-  list.remove(5);
-  list.addToTail(123)
-  list.addToTail(503)
-  
-  list.addToHead(100)
-  list.showList();
+const hh = new Table(1,2,4,5,4,7);
+hh.insert('age', 5);
+hh.insert('name', 'Gv');
+hh.insert('add', 5452);
+hh.insert('country', 'India');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class Node {
-//     constructor(val) {
-//       this.value = val;
-//       this.next = null;
-//     }
-//   }
-  
-//   class LinkedList {
-//     constructor() {
-//       this.head = null;
-//     }
-  
-//     add(val) {
-//       let node = new Node(val)
-      
-//       if (!this.head) {
-//         this.head = node;
-//       } 
-//       else {
-//         let current = this.head;
-//         while (current.next) {
-//           current = current.next;
-//         }
-//         current.next = node;
-//       }
-//     }
-  
-//     middleAdd(middleVal, newVal) {
-//       let current = this.head;
-//       let node = new Node(newVal)
-//       while (current.next) {
-//         if (current.value === middleVal) {
-//           // make the new node equal to the current node's next object
-//           node.next = current.next;
-//           // make the current node's next object equal to the new node
-//           current.next = node;
-//           break;
-//         }
-//         current = current.next;
-//       }
-//     }
-  
-//     // prototype method to remove from the linked list
-//     remove(val) {
-//       let current = this.head;
-//       // if what's being removed is the first node
-//       if (current.value === val) {
-//         this.head = current.next;
-//       } else {
-//         let previous = current;
-//         while (current.next) {
-//           // if what's being removed is in the middle of the list
-//           if (current.value === val) {
-//             previous.next = current.next;
-//             break;
-//           }
-//           previous = current;
-//           current = current.next;
-//         }
-//         // if what's being removed is the last node
-//         if (current.value === val) {
-//           previous.next = null;
-//         }
-//       }
-//     }
-    
-//     showList() {
-//       let list = ''
-//       let current = this.head
-//       while (current.next) {
-//         list += current.next.next ? current.value + " ➔ " : current.value
-//         current = current.next;
-//       }
-//       console.log(list)
-//     }
-//   }
-  
-//   let list = new LinkedList();
-
-//   list.add(2);
-//   list.add(3);
-//   list.add(4);
-//   list.add(6);
-//   list.middleAdd(2, 16);
-//   list.showList()
-//   list.middleAdd(3, 7);
-//   list.showList()
-//   //console.log(JSON.stringify(list, null, 2))
-  
-  
-  
-  
-  
-  
-  
-  
+console.log(hh.get('country'));
+console.log("all called",hh.getAll());
