@@ -1,4 +1,3 @@
-
 //Binary tree
 class Tree {
     constructor(value) {
@@ -58,18 +57,17 @@ class Tree {
 }
 
 
-var tree = new Tree(2,);
-console.log();
+var tree = new Tree(5);
 
-tree.insert(6);
-tree.insert(20);
+// left node because values are lesser than root
+tree.insert(1);
+tree.insert(2);
+tree.insert(3);
 tree.insert(4);
+
+// right node because values are greater than root
+tree.insert(6);
 tree.insert(7);
-
-console.log(tree.contains(20));
-console.log(tree.getMinValue());
-
-
-
-
+tree.insert(8);
+tree.insert(9);
 console.log(tree);
