@@ -1082,8 +1082,84 @@ console.log("cgs max subarr: ",__mx(iarr));
 
 
 
+//egg drop with Math fn
+const __twoEggDrop = k =>{ 
+    return Math.ceil((-1.0 + Math.sqrt(1 + 8*k))/2.0); 
+ } 
+ 
+ var k = 100; 
+ console.log("two egg drops", __twoEggDrop(k));
 
-seprator("--------- singly linnked list ------------")
+
+
+ //egg drop
+ const __max = (a,b) =>{
+    return (a>b)?a:b;  //returning maximum of two integers
+}
+
+const __eggDrop = (n,k)=>{
+    var ef = [[n+1],[k+1]];
+    var res;
+    var i,j,x;
+
+    for(i = 1; i <=n; i++){
+        ef[[i],[1]] = 1;
+        ef[[i],[0]] = 0;
+    }
+
+    for(j = 1; j <= k; j++){
+        ef[[1],[j]]=j;
+
+    }
+
+    for(i=2; i<=n; i++){
+        for(j=2; j<=k; j++){
+
+            ef[[i],[j]] = Number.MAX_SAFE_INTEGER;
+            
+            for(x=1; x<=j; x++){
+                res = 1 + __max(ef[[i-1],[x-1]], ef[[i],[j-x]]);
+                if(res < ef[[i],[j]]){
+                    ef[[i],[j]] = res;
+                }
+            }
+        }
+    }
+
+    return ef[[n],[k]];
+
+}
+
+var n = 2, k = 36;    // for n:2   k:36   output is 8
+console.log("egg droppped: ", __eggDrop(n,k));   //output is 4
+
+
+
+//sum of sub array's 
+function getMaxSubSum(arr) {
+    let maxSum = 0;
+    let partialSum = 0;
+  
+    for (let item of arr) { // for each item of arr
+      partialSum += item; // add it to partialSum
+      maxSum = Math.max(maxSum, partialSum); // remember the maximum
+      if (partialSum < 0) partialSum = 0; // zero if negative
+    }
+  
+    return maxSum;
+  }
+  
+  console.log( getMaxSubSum([-1, 2, 3, -9]) ); // 5
+  console.log( getMaxSubSum([-1, 2, 3, -9, 11]) ); // 11
+  console.log( getMaxSubSum([-2, -1, 1, 2]) ); // 3
+  console.log( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
+  console.log( getMaxSubSum([1, 2, 3]) ); // 6
+  console.log( getMaxSubSum([-1, -2, -3]) ); // 0
+
+
+
+
+seprator("--------- singly linked list ------------")
 class LinkedList{
     constructor(){
         this.head = null;
@@ -1212,3 +1288,75 @@ class LinkedList{
   
   const lengthToCreate = 3;
   createBlockchain(lengthToCreate);
+
+
+  seprator(" ----- hash table ------")
+  class Node {
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Table {
+    constructor(size) {
+        this.cells = new Array(size);
+    }
+
+    hash(key) {
+        let total = 0;
+        for (let i = 0; i < key.length; i++) total += key.charCodeAt(i);
+        return total % this.cells.length;
+    }
+
+    insert(key, value) {
+        const hash = this.hash(key);
+        if (!this.cells[hash]) {
+            this.cells[hash] = new Node(key, value);
+        } else if (this.cells[hash].key === key) {
+            this.cells[hash].value = value;
+        } else {
+            let node = this.cells[hash];
+            while (node.next) {
+                if (node.next.key === key) {
+                    node.next.value = value;
+                    return;
+                }
+                node = node.next;
+            }
+            node.next = new Node(key, value);
+        }
+    }
+
+    get(key) {
+        const hash = this.hash(key);
+        if (!this.cells[hash]) return null;
+        else {
+            let node = this.cells[hash];
+            while (node) {
+                if (node.key === key) return node.value;
+                node = node.next;
+            }
+            return null;
+        }
+    }
+
+    getAll() {
+        const table = [];
+        for (let i = 0; i < this.cells.length; i++) {
+            const cell = [];
+            let node = this.cells[i];
+            while (node) {
+                cell.push(node.value);
+                node = node.next;
+            }
+            table.push(cell);
+        }
+        return table;
+    }
+}
+
+
+const hh = new Table(1,2,4,5,4,7);
+console.log(hh);
