@@ -964,6 +964,21 @@ function getMaxSubSum(arr) {
 
 
 
+// promise
+var pp = new Promise((resolve,reject)=>{
+    setTimeout(() =>{
+        resolve('-->');
+    }, 300);
+});
+
+pp.then(value=>{return console.log(value + ' hmm')});
+
+console.log(pp);
+
+
+
+
+
 
 //squareroot function
 const __sqrt = (n, g) => {    // g is guess number
@@ -1036,7 +1051,7 @@ console.log("egg droppped: ", __eggDrop(n,k));   //output is 4
 
 
 
-
+//shortest path
 const problem = {
     start: {A: 5, B: 2},
     A: {C: 4, D: 2},
