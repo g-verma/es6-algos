@@ -731,6 +731,16 @@ var num2 = [1, 4, 8, 3]
 num1.push.apply(num1,num2);
 console.log("merged array: ", num1);
 
+//promise
+var pp = new Promise((resolve,reject)=>{
+    setTimeout(() =>{
+        resolve('-->');
+    }, 300);
+});
+
+pp.then(value=>{return console.log(value + ' hmm')});
+
+console.log(pp);
 
 
 
