@@ -1523,3 +1523,11 @@ const __isUgly = num => {
 }
 console.log("ugly is", __isUgly(150))
 document.write(__isUgly(150));
+
+
+//typeof
+console.log('typeof num:', typeof num); 
+console.log('typeof hello:', typeof 'hello'); 
+console.log('typeof true:', typeof true); 
+console.log('typeof [1,2,3]:', typeof [1,2,3]);
+console.log('typeof {name:John}:', typeof {name:'John'});
