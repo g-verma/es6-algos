@@ -13,3 +13,4 @@ const __isUgly = num => {
 }
 
 console.log("ugly is", __isUgly(150))
+document.write(__isUgly(150));
