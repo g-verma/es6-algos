@@ -1536,3 +1536,37 @@ console.log('typeof {name:John}:', typeof {name:'John'});
 if (num === 1){ num--; } else { num++;
 }
 (num === 1) ? num-- : num++;
+
+
+//isvalid statement
+var isValid = str => {
+    let result = true;
+    
+    let stack = [];
+    
+    for (let i=0; i<str.length; i++) {
+      const ch = str[i];
+      
+      switch(ch) {
+        case '(':
+        case '[':
+        case '{': stack.push(ch); break;
+        case ')': result = stack.pop() === '('; break;
+        case ']': result = stack.pop() === '['; break;
+        case '}': result = stack.pop() === '{'; break;
+      }
+      
+      if (!result)
+        break;
+    }
+    
+    if (result) {
+      result = stack.length === 0;
+    }
+    
+    return result;
+  }
+
+
+var str = '[((this is working)]';  // true
+console.log("isvalid: ", isValid(str));

@@ -1382,3 +1382,71 @@ console.log('typeof {name:John}:', typeof {name:'John'});
 if (num === 1){ num--; } else { num++;
 }
 (num === 1) ? num-- : num++;
+
+
+//isvalid statement
+var isValid = str => {
+    let result = true;
+    
+    let stack = [];
+    
+    for (let i=0; i<str.length; i++) {
+      const ch = str[i];
+      
+      switch(ch) {
+        case '(':
+        case '[':
+        case '{': stack.push(ch); break;
+        case ')': result = stack.pop() === '('; break;
+        case ']': result = stack.pop() === '['; break;
+        case '}': result = stack.pop() === '{'; break;
+      }
+      
+      if (!result)
+        break;
+    }
+    
+    if (result) {
+      result = stack.length === 0;
+    }
+    
+    return result;
+  }
+
+
+var str = '[((this is working)]';  // true
+console.log("isvalid: ", isValid(str));
+
+
+
+
+//compress a string or num length
+var compress = function(s) {
+    let result = '';
+    
+    if (s.length) {
+      let last = s[0];
+      let count = 1;
+      
+      for (let i=1; i<s.length; i++) {
+        const ch = s[i];
+        
+        if (ch !== last) {
+          result += last + (count > 1 ? count : '');
+          
+          last = ch;
+          count = 1;
+        }
+        else {
+          count++;
+        }
+      }
+      
+      result += last + (count > 1 ? count : '');
+    }
+  
+    return result;
+  };
+
+
+  document.write(compress('abbbccccdddd'));

@@ -1,4 +1,4 @@
-Q1. Run Length Encoding
+Q1. Run Length Encoding //compressiion
 Q2. Smallest subarray with sum greater than a given value
 Q3. Flattening a Linked List
 Q4. Maximum height of the staircase
