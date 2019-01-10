@@ -1,19 +1,21 @@
-const __th = (n, from_rod, to_rod, aux_rod)  => {
+class Sheep {
+    constructor(name, weight) {
+        this.name = name;
+        this.weight = weight;
+    }
 
-    if (n == 1) 
-    {
-     console.log("Move disk 1 from " + from_rod, to_rod); 
-        return; 
-    } 
-    
-    __th(n-1, from_rod, aux_rod, to_rod); 
-    console.log("Move disk from rod to rod ", n, from_rod, to_rod); 
-    
-    __th(n-1, aux_rod, to_rod, from_rod); 
-} 
+    clone() {
+        return new Sheep(this.name, this.weight);
+    }
+}
 
-var n = 3;
-console.log(__th(n, 'A', 'C', 'B'));
-    
+const ss = new Sheep('bb',25);
 
-  
+console.log(ss);
+
+
+ 
+ 
+ 
+ 
+ 

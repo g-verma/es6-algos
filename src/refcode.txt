@@ -1,3 +1,14 @@
+imagemin
+sharp
+jimp
+srcset
+image lazy loading
+-- lazysizes
+-- lozad
+
+src: url("first font"), ("roboto")
+
+
 
 //num length
 var arr = [];
@@ -539,7 +550,6 @@ class LinkedList{
   
   list.addToHead(100)
   list.showList();
-
 
 
 

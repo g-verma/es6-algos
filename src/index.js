@@ -426,7 +426,67 @@ console.log("smallest: ", __ssmin(narr));
 seprator();
 
 
-//bin search
+ // Find the min and max numbers of an Array
+
+ k = [50, 20, 30, 400, 5, -5, -3]
+
+ var maxNum = function(array) {
+   mxn = array[0];
+   for (var i = 0; i < array.length; i++) {
+     if (array[i] > mxn) {
+       mxn = array[i];
+     }
+   }
+   return mxn;
+ };
+ 
+ maxNum(k);
+ 
+ 
+ // Find the min value from the array.
+ 
+ var minNum = function(array){
+   mnm = array[0];
+   for (var i = 0; i < array.length; i++) {
+     if (array[i] < mnm) {
+       mnm = array[i];
+     }
+   }
+   return mnm;
+ }
+ 
+ minNum(k);
+ 
+ // Now try the same examples using a forEach loop.
+ 
+ var maxNum2 = function(array) {
+   max = 0;
+   k.forEach(function(element){
+     if (element > max) {
+       max = element;
+     }
+   })
+   return max;
+ };
+ 
+ maxNum2(k);
+ 
+ // Now do the same thing for the min value.
+ 
+ var minNum2 = function(array) {
+   min = 0;
+   k.forEach(function(element, index) {
+     if(element < min) {
+       min = element;
+     }
+   })
+   return min;
+ };
+ 
+ console.log(k);
+ minNum2(k);
+ 
+ //bin search
 
 const __bsearch = (arr, el) =>{
 
