@@ -292,6 +292,55 @@ arr = [5, 8, 1, 2, 15, 3];
 console.log("bs", bs(arr));
 seprator();
 
+
+
+
+
+// Sorting in ascending order
+function bubbleSort(arrayToSort){
+  
+  var sorted = function(arr){
+    // Check if an array is sorted
+    var sorted = true;
+    // return true or false depending if array is sorted or not
+    for(var i=0, length=arr.length;i<length;i++){
+      if(arr[i] > arr[i+1]){
+        sorted = false;
+        break;
+      }
+    }
+    return sorted;
+  };
+
+  // While the array is not sorted
+  // When the array is sorted, stop checking
+  while( !sorted(arrayToSort) ){
+  
+  // Run through array
+  for(var i=0, length=arrayToSort.length;i<length;i++){
+    // Check if current value is greater than the next value
+    if( arrayToSort[i] > arrayToSort[i+1] ){
+     
+      // If it is, switch the current value and the next
+      var placeHolder = arrayToSort[i+1];
+      arrayToSort[i+1] = arrayToSort[i];
+      arrayToSort[i] = placeHolder;
+      
+    } 
+    
+  }
+    
+  }
+  
+  // return the array
+  return arrayToSort;
+}
+
+
+console.log(bubbleSort([9,8,7,6,5,100,312378,323,43,5,4,3,2,1]));
+
+
+
 // bbs without sorted array
 const __bbsrt = arr =>{
     for(var i=0; i< arr.length -1; i++){

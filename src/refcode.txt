@@ -7,8 +7,14 @@ image lazy loading
 -- lozad
 
 src: url("first font"), ("roboto")
+dynamic imports javascript
+react 16.6 uses suspense for dynamic imports   
+<Suspense fallback=(<div>)>
+    <Detailscomponent />
+</Suspense>
 
-
+babel/preset-env transpiles only those codes which are needed to transpiles
+-- sapper + rollup
 
 //num length
 var arr = [];

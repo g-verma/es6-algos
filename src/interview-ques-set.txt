@@ -1,0 +1,183 @@
+
+
+
+1.	Multiple Choice Questions
+
+
+2.	Subjective Questions
+
+
+3.	Programming Questions
+
+******************** 1. start  **********************
+/*
+** Following program will accept the input string as a parameter and returns the following values.
+** 1. First Repeated Number
+** 2. Last Repeated Number
+** 3. First Non Repeating Number
+** 4. Last Non Repeating Number
+** 5. Most Repeated Number
+*/
+function softvisionAlgo(input) {
+    let firstRepeating = '',
+        lastRepeating = '',
+        firstNonRepeating = '',
+        lastNonRepeating = '',
+        mostRepeated = '';
+
+    let inputArr = input.split('');
+    let arr = [];
+    for(let i = 0; i < inputArr.length; i++) {
+        let count = 0;
+        for(let j = 0; j < inputArr.length; j++) {
+            if(inputArr[j] === inputArr[i]) {
+                count++;
+            }
+        }
+        arr.push(count);
+    }
+    console.log(arr);
+    /*
+    ** Following line will fetch the first and last repeated item out of input array.
+    */
+    let iteration = true;
+    arr.forEach((val, idx) => {
+        if(val > 1 && iteration) {
+            firstRepeating = inputArr[idx];
+            iteration = false;
+        } else if(val > 1 && firstRepeating !== inputArr[idx]) {
+            lastRepeating = inputArr[idx];
+        }
+
+    });
+
+    /*
+    ** Following line will fetch the first and last non repeated item out of input array.
+    */
+    let iteration2 = true;
+    arr.forEach((val, idx) => {
+        if(val === 1 && iteration2) {
+            firstNonRepeating = inputArr[idx];
+            iteration2 = false;
+        } else if(val === 1 && firstNonRepeating !== inputArr[idx]) {
+            lastNonRepeating = inputArr[idx];
+        }
+    });
+
+    /*
+    ** Following line will fetch the most repeated item out of input array.
+    */
+    mostRepeated = inputArr[arr.indexOf(Math.max(...arr))];
+
+
+    console.log('First Repeating Character : ', firstRepeating);
+    console.log('Last Repeating Character : ', lastRepeating);
+    console.log('First Non Repeating Character : ', firstNonRepeating);
+    console.log('Last Non Repeating Character : ', lastNonRepeating);
+    console.log('Most Repeated Character : ', mostRepeated);
+}
+
+
+
+************ 1. ends here ******************
+
+
+
+
+//quick sort
+const qc = arr => {
+  var len = arr.length;
+  
+  if (len < 2) return arr;
+
+  var countr = arr[0];
+
+  var ls = [];
+  var gr = [];
+
+  for (var i = 1; i < len; i++) {
+    if (arr[i] < countr) {
+      ls.push(arr[i]);
+    } else {
+      gr.push(arr[i]);
+    }
+  }
+
+  
+  return [...qc(ls), countr, ...qc(gr)];
+};
+
+var array = [5,8,4,7,2];
+console.log(qc(array));
+
+
+//bbs with while
+function bs(arr) {
+    let srt = false;
+    while (!srt) {
+      srt = true;
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i-1] > arr[i]) {
+         srt = false;
+
+         let temp = arr[i-1]
+         arr[i-1] = arr[i]
+         arr[i] = temp
+        }
+      }
+    }
+    return arr;
+ }
+ 
+arr = [5, 8, 1, 2, 15, 3];
+console.log("bs", bs(arr));
+
+
+
+
+
+
+//normal fibbi
+const __fb = (num) => {
+    if(num == 0 || num <=1)
+      return num;
+    else{
+      return  __fb(num - 1) + __fb(num - 2) ;
+    }
+}
+const ways = n =>{
+    return __fb(n + 1);
+}
+
+console.log('ways to climb', ways(4));
+
+
+ 
+//staircase combinations using dynamic programming 
+const __stc = n =>{   //complexity is O(n)
+    var res = [n];  //[n+1] is not required
+    res[0] = 1;
+    res[1] = 1;
+    res[2] = 2;
+
+    for(var i = 3; i <= n; i++){
+        res[i] = res[i-1] + res[i-2] + res[i-3];
+    }
+    return res[n];
+}
+console.log(__stc(3));  // input 3, output 4 :: input 4, ouput 7
+
+
+//staircase using recursive, time complexity is exponentional
+const __fstep = n =>{
+
+    if (n == 1 || n == 0)  
+        return 1; 
+    else if (n == 2)  
+        return 2; 
+    else 
+        return __fstep(n - 3) + __fstep(n - 2) + __fstep(n - 1);  
+}
+console.log('ways to climb: ', __fstep(4));  // input 3, output 4 :: input 4, ouput 7
+
+

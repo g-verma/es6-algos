@@ -1,0 +1,52 @@
+1. Second smallest
+2. Best Average Grade  
+**  Given a list of student test scores, find the best average grade.
+**  Each student may have more than one test score in the list.
+3. Median in two sorted and non sorted arrays
+4. Binary Search
+5. Grouping words as per anagram
+6. Staircase
+7. Quick sort
+8. Bubble sort
+9. Merge arrays - 
+10. searching
+11. max sum of sub arrays - kedene's algo
+
+Q1. Run Length Encoding // compressiion
+Q2. Smallest subarray with sum greater than a given value
+Q3. Flattening a Linked List
+Q4. Maximum height of the staircase
+Q5. How to determine if a binary tree is height-balanced?
+Q6. Count the subarrays having product less than k
+Q7. Second most repeated string in a sequence
+Q8. Egg Dropping Puzzle 
+Q9. Stock buy and sell
+Q10. Merge Sort
+Q11. Quick Sort
+Q12. Ugly Numbers
+Q13. Implement a Queue in Javascript, Implement a Stack in Javascript.
+Q14. Number Formation
+
+
+
+
+/*
+** Following program will accept the input string as a parameter and returns the following values.
+** 1. First Repeated Number
+** 2. Last Repeated Number
+** 3. First Non Repeating Number
+** 4. Last Non Repeating Number
+** 5. Most Repeated Number
+*/
+
+
+https://www.geeksforgeeks.org/median-two-sorted-arrays-different-sizes-ologminn-m/
+https://www.geeksforgeeks.org/median-of-two-sorted-arrays/
+https://stackoverflow.com/questions/26539694/finding-the-average-highest-lowest-grade-of-input-array-elements
+https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together/
+https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together-set-2/
+https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+https://www.geeksforgeeks.org/binary-search/
+https://www.geeksforgeeks.org/binary-search-in-javascript/
+
+
