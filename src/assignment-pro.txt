@@ -171,32 +171,6 @@ var testArrays  = [-44,-44,-4,-3,22,5,-11,5,89,0,22];   // here second smallest 
 console.log(secondSmallest(testArrays));  // output is : -11
 // *** solution 1 ends here ***
 
-// Solution 2
-const secondSmallest = arr =>{
-  if (arr.length < 2) {
-    return 0;
-  }
-
-  var first = arr[0];
-  var second = arr[0];
-
-  for (var i = 1; i < arr.length; i++) {
-    if (arr[i] < second) {
-      if (arr[i] < first) {
-        second = first;
-        first = arr[i];
-      } else {
-        second = arr[i];
-      }
-    }
-  }
-  return ` second smallest: ` + second;
-}
-
-var k = [40,7,2,800,5];
-console.log(secondSmallest(k))
-// ***  Solution 2 ends here ***
-
 // 3. Best Average Grade  
 // **  Given a list of student test scores, find the best average grade.
 // **  Each student may have more than one test score in the list.
