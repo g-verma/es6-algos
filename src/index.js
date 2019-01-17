@@ -202,7 +202,7 @@ console.log("Duplicates : ", __fr(inputString));
 seprator();
 
 
-// duplicate strings
+// duplicate strings run length / char frequencies
 var arr = [];
 var istr = "abcdaaddb";
 var rmdup = [];
@@ -1679,3 +1679,132 @@ var isValid = str => {
 
 var str = '[((this is working)]';  // true
 console.log("isvalid: ", isValid(str));
+
+
+
+
+const __avg = arr =>{
+    var len =  arr.length;
+    var result = {
+      gavg:[],
+      gmax:[],
+      gmin:[]
+    };
+    
+    for(var j=0; j<len; j++){
+    
+      var total = 0;
+      var max = 0;
+      var min = 999999;
+      var len1 = arr[j].length;
+      var sarr = arr[j];
+    
+    
+      for(var i=0; i<len1; i++){
+        var grade = sarr[i];
+        total += grade;
+    
+        if(max < grade){
+            max = grade;
+        }
+        if(min > grade){
+          min = grade;
+        }
+      }
+      
+      result.gavg.push(total/len1);
+      result.gmax.push(max);
+      result.gmin.push(min);
+    }
+    
+    console.log("global avg ", result.gavg);
+    console.log("global max ", result.gmax);
+    console.log("global min ", result.gmin);
+    
+    }
+    
+    
+    var scor = [[10,20,30], [40,50,60], [70,80,90]];
+    console.log("score is ", __avg(scor));
+    
+    
+
+    
+function secondSmallest(x)
+{
+  // todo: implement this function
+
+  const sortArray = arr => {
+    var len = arr.length;
+    
+    if(len < 2) return arr;
+    
+    var counter = arr[0];
+
+    var ls = [];
+    var gr = [];
+
+    //comparing the counter to next element in an array
+    for(var i = 1; i < len; i++) {
+      if(arr[i] < counter){
+        ls.push(arr[i]);  // pushing values less then counter
+      } else{
+        gr.push(arr[i]);  // pushing values greater then counter
+      }
+    } 
+
+    // merging all the arrays into one as and getting the sorted Array
+    var sortedArr = [...sortArray(ls), counter, ...sortArray(gr)];
+    
+    // removing duplicates from the sorted array
+    let removeDup = arr => arr.filter((v,i) => arr.indexOf(v) === i);
+    let uniqueArr = removeDup(sortedArr);
+
+    return uniqueArr;
+  }
+
+   if(x.length < 2)
+     return 0;
+   else
+   { 
+     var output = sortArray(x);
+     return output[1];  // returning the second smallest value from the sorted array.
+   }
+}
+
+
+/**
+ * Returns true if all tests pass; otherwise, returns false.
+ */
+function doTestsPass()
+{
+  // todo: add more test cases
+  var testArrays  = [[0], [-44,-44,-4,-3,22,5,-11,5,89,0,22], [5,22,65,1,666,6] ];
+  var testResults = [0,-11, 5];
+
+  // Run through the tests and make assertions
+  for(var i = 0; i < testArrays.length; i++)
+  {
+  if(secondSmallest(testArrays[i]) != testResults[i])
+  {
+    return false;
+  }
+  }
+  return true;
+}
+
+
+/**
+ * Main execution entry.
+ *//**
+ * Main execution entry.
+ */
+if(doTestsPass())
+{
+  console.log("All tests pass!");
+}
+else
+{
+  console.log("There are test failures.");
+}
+

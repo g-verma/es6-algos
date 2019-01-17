@@ -1,3 +1,29 @@
+1. Return the second smallest element in the array x  
+2. Best Average Grade  
+**  Given a list of student test scores, find the best average grade.
+**  Each student may have more than one test score in the list.
+3.Median in two sorted and non sorted arrays
+4.Binary Search
+5.Grouping words as per anagram
+6. staircase problem - with max 3 steps, find max height of staircase.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. Second smallest
 2. Best Average Grade  
 **  Given a list of student test scores, find the best average grade.

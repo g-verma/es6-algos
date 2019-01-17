@@ -1,0 +1,22 @@
+
+** Following program will accept the input string as a parameter and returns the following values.
+** 1. First Repeated Number
+** 2. Last Repeated Number
+** 3. First Non Repeating Number
+** 4. Last Non Repeating Number
+** 5. Most Repeated Number
+
+2. Return the second smallest element in the array x  
+3. Best Average Grade  
+**  Given a list of student test scores, find the best average grade.
+**  Each student may have more than one test score in the list.
+4. Median in two sorted and non sorted arrays
+5. Binary Search
+6. Grouping words as per anagram
+
+----- 
+1. I want you to solve every problem in three different ways.
+2. You should tell me pros and cons of every approach.
+3. The code should be organised in every approach.
+4. All the corner cases should be covered.
+5. Time complexity and memory complexity.
