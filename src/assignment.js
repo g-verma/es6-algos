@@ -258,7 +258,7 @@ const __avg = arr =>{
   return `Highest avg is: ` + maxNum(result.gavg) + ` Highest Score is: ` + maxNum(result.gmax) + ` Lowest Score is: ` + minNum(result.gmin);
 }
   
-var score = [[10,20,30], [40,50,60], [70,80,90]];  // Students have more than one score
+var score = [[10,20,30], [40,50,60], [70,80,90,100]];  // Students have more than one score
 console.log(__avg(score));
 // *** Solution 1 ends here ***
 
@@ -340,6 +340,39 @@ for(var item in result){
   console.log(result[item].toString());   // returnig all the items from the array object
 }
  // *** Solution 1 ends here ***
+
+ // 7. Staircase problem with max step 1,2,3
+// Solution 1       Time Complexity is n*(log n)
+const __stair = n =>{
+  if(n == 1 || n == 0)
+      return 1;
+  else if(n == 2 )
+       return 2;
+  else {   
+      var output = __stair(n-1) + __stair(n-2) + __stair(n-3);
+      return output;
+  }
+}
+console.log("ways to climb: ", __stair(3));  //output : 4
+// *** Solution 1 ends here ***
+
+// Solution 2  Using dynamic programming          complexity is O(n)
+const __stc = n =>{   
+  var res = [n];  
+  res[0] = 1;
+  res[1] = 1;
+  res[2] = 2;
+
+  for(var i = 3; i <= n; i++){
+      res[i] = res[i-1] + res[i-2] + res[i-3];
+  }
+  return res[n];
+}
+console.log('ways to climb: ', __stc(3));  // input 3, output 4 :: input 4, ouput 7
+// *** Solution 2 ends here ***
+
+
+
 
 
 /*

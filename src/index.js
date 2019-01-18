@@ -882,7 +882,7 @@ for(var i = 0; i< num.length; i++){
 }
 
 
-seprator(" Time Complexity O(logn) : "); // Logarithmic Time Algorithm
+seprator(" Time Complexity O(log n) : "); // Logarithmic Time Algorithm
 
 //example 1
 const __fibb = num =>{  // here you will reduce the time by half every time when iterating for the next time.
@@ -1829,3 +1829,93 @@ var allAnagrams = function(arr) {
 }
 
 console.log(allAnagrams(arr));
+
+
+
+//normal fibbi staircase with 1 or 2 steps at a time.
+const __fb = (num) => {
+    if(num == 0 || num <=1)
+      return num;
+    else{
+      return  __fb(num - 1) + __fb(num - 2) ;
+    }
+  }
+  const ways = n =>{
+    return __fb(n + 1);
+  }
+  
+  console.log('ways to climb', ways(3));   //output: 3; input:4 - output: 5 //
+
+
+//num length
+var str = "abcc";
+var obj={};
+for(var i =0; i<str.length;i++){
+  if(obj[str.charAt(i)]){
+      obj[str.charAt(i)] = obj[str.charAt(i)]+1;
+  }
+  else{
+      obj[str.charAt(i)] = 1;
+  }
+}
+console.log(Object.values(obj));
+
+
+//remove dup
+const __rrd = str => {
+    var ostr = str.split('');
+    var count = 0;
+  
+    for(var i=0; i < ostr.length; i++ ){
+        for(var j=0; j < count; j++){
+            if(ostr[i] == ostr[j]) 
+              break;
+        }
+        if(j === count){
+            ostr[count] = ostr[i];
+            ++count;
+        }
+    }
+  
+    ostr.length = count;
+    return ostr;
+  }
+  var ystr = "dssss"
+  console.log(__rrd(ystr));
+
+
+  
+//remove dup using obj
+const __rdnew = str => {
+    var ostr = str.split('');
+    var obj = {};
+    
+    for(var i=0; i < ostr.length; i++ ){
+         obj[ostr[i]] = "";
+    }
+    return Object.keys(obj);
+  }
+  
+  var ystr = "dssss"
+  console.log("using object", __rdnew(ystr));
+
+// remove duplicates  
+const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
+let unique = [...new Set(names)];
+console.log(unique);
+
+const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
+
+
+// remove dups
+function removeDups(names) {
+  let unique = {};
+  names.forEach(function(i) {
+    if(!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  return Object.keys(unique);
+}
+
+removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
