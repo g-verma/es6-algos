@@ -1,3 +1,14 @@
+//1. Best average grade and run length encoding
+//-- given an array scores [][] = {“jerry”,”65”},{“bob”,”91”}, {“jerry”,”23”}, {“Eric”,”83”}} Find the student with highest average score
+//2. Second smallest 
+
+
+
+
+
+
+
+
 
 // Following program will accept the input string as a parameter and returns the following values.
 
