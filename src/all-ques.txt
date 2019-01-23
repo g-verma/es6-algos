@@ -6,13 +6,15 @@
 ** 4. Last Non Repeating Number
 ** 5. Most Repeated Number
 
-2. Return the second smallest element in the array x  
-3. Best Average Grade  
+2. Return the second smallest element in the array x.
+3. Best Average Grade.
 **  Given a list of student test scores, find the best average grade.
 **  Each student may have more than one test score in the list.
-4. Median in two sorted and non sorted arrays
-5. Binary Search
-6. Grouping words as per anagram
+4. Median in two sorted and non sorted arrays, with same and different sizes.
+5. Binary Search. Binary tree is full BST or not.
+6. Grouping words as per anagram.
+7. Staircase with 1,2,3 steps and max height of Staircase.
+8. Anagram of a word is palindrome or not.
 
 ----- 
 1. I want you to solve every problem in three different ways.
@@ -20,3 +22,6 @@
 3. The code should be organised in every approach.
 4. All the corner cases should be covered.
 5. Time complexity and memory complexity.
+
+
+

@@ -340,7 +340,33 @@ var inputArr2 = [2,8,9,11,13,15];
 
 //calling the findMedian function and passing arguments - It will take two arrays as arguments with same size.
 console.log("Median is : ", __findMedian(inputArr1, inputArr2));
-// *** Solution Ends here ***
+// *** Solution 1 Ends here ***
+
+// Solution 2
+const __median = (arr1, arr2) =>{
+  var mergeArr = [...arr1, ...arr2];
+
+  var sortedArr = mergeArr.sort((a,b)=>a-b);
+  //console.log(sortedArr);
+  if(sortedArr.length % 2 == 0){
+    var mid1 = sortedArr.length/2
+    var mid2 = mid1 + 1;
+    var output = (sortedArr[mid1] + sortedArr[mid2])/2;
+    return output;
+  }else{
+    var mid = Math.floor(sortedArr.length/2);
+    return sortedArr[mid];
+  }
+  
+}
+
+var k1= [2,3,5,6,7,9,10];
+var k2 = [1,8,11,12,13,14];
+
+console.log(__median(k1,k2));
+// Solution 2 ends here
+
+
 
 // 5. Binary Search
 // Solution 1       Time complexity is O(log n), as it execution will reduce into half after subsequent levels.
@@ -426,6 +452,37 @@ console.log('ways to climb: ', __stc(3));  // input 3, output 4 :: input 4, oupu
 // *** Solution 2 ends here ***
 
 
+// Anagram of a word is Palindrome or not
+// Solution 1 
+
+const __angagramPali = str =>{
+  var obj = {};
+  var count = 0;
+
+  for(var i=0;i<str.length; i++){
+    if(obj[str[i]]){
+      obj[str[i]]++;
+    }else{
+      obj[str[i]] = 1;
+    }
+  }
+  //console.log(obj);
+  for(var k in obj){
+    if(obj[k] %2 !=0 && count <2){
+      count++;
+      if(count == 2){
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+
+var inputStr = 'madam';
+console.log('string is palindrome ', __angagramPali(inputStr));
+//Solution 1 ends here
 
 
 

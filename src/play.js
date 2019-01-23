@@ -1,50 +1,30 @@
-const firstNonRep = str => {
-  var arr = str.split('');
-  var result = '';
-  var counter = 0;
- 
-  for (var i = 0; i < arr.length; i++) {
-    counter = 0;
-    for (var j = 0; j < arr.length; j++){
-      if (arr[i] === arr[j]) {
-        counter += 1;
-      }
-    }
-    if (counter < 2) {
-      result = arr[i];
-      break;
+
+//anagram of a word is palindrome or not
+
+const __angagramPali = str =>{
+  var obj = {};
+  var count = 0;
+
+  for(var i=0;i<str.length; i++){
+    if(obj[str[i]]){
+      obj[str[i]]++;
+    }else{
+      obj[str[i]] = 1;
     }
   }
-  return result;
-}
-console.log('First Non-repeating char is: ', firstNonRep('abbac'));
-
-
-
-
-
-
-
-
-
-
-
-const __anagram = arr => {
-  var obj = {};  
-    
-  arr.forEach( item =>{
-      const val = item.split('').sort().join('');
-      
-      if (obj[val]) {
-          return obj[val].push(item);
+  console.log(obj);
+  for(var k in obj){
+    if(obj[k] %2 !=0 && count <2){
+      count++;
+      if(count == 2){
+        return false;
       }
+    }
+  }
 
-      obj[val] = [item];
-  });
-
-  return obj;
+  return true;
 }
 
-var str = ['cat', 'dog', 'tac', 'god' , 'act','actor'];
-var output = Object.values(__anagram(str));
-console.log(String(output));
+
+var inputStr = 'madam';
+console.log('string is palindrome ', __angagramPali(inputStr));
