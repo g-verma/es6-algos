@@ -294,7 +294,6 @@ console.log(__avg(score));
 // *** Solution 1 ends here ***
 
 // Solution 2
-
 const __av = scores =>{
   var score = {};
   if(scores.length == 0){
@@ -307,8 +306,7 @@ const __av = scores =>{
     var value = parseInt(scores[0+i][1])
   
     if(score[key]){
-      score[key]['total'];
-      score[key]['total'] = score[key]['total'] + value ;
+      score[key]['total'] +=  value ;
       score[key]['subcount']++
       score[key]['avg'] = (score[key]['total']/score[key]['subcount']);
     }
@@ -338,7 +336,7 @@ console.log(' avg is ',__av(pp));
 // Solution 2 ends here
 
 
-// 4. Median in two sorted and non sorted arrays
+// 4. Median in two sorted and non sorted arrays with same size
 // Solution 1            Time complexity is O(n), is directly proportional to its size and will grow linearly.
 const __findMedian = (arr1, arr2) => {  // defined two arguments.
   var sortedArray = [...arr1, ...arr2];   // here we are merging the two arrays.
@@ -362,7 +360,7 @@ var inputArr2 = [2,8,9,11,13,15];
 console.log("Median is : ", __findMedian(inputArr1, inputArr2));
 // *** Solution 1 Ends here ***
 
-// Solution 2
+// Solution 2 with different sizes
 const __median = (arr1, arr2) =>{
   var mergeArr = [...arr1, ...arr2];
 
