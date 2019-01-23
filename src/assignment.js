@@ -136,7 +136,27 @@ console.log('First Non-repeating char is: ', firstNonRep('abbac'));
 // *** Solution 2 ends here *** 
 
 // 4. Last Non Repeating Character
-// 5. Most Repeated Character
+// Solution 1
+const __lastrep = str =>{
+	var obj = {}
+
+  for(var i=str.length-1; i>=0;i--){
+      if(obj[str[i]]){
+        obj[str[i]]++;
+        if(obj[str[i]] > 1){      
+            return str[i];
+          }
+      }else{
+        obj[str[i]] = 1;
+      }
+    }
+}
+
+var k = 'abca';
+console.log('last repeated: ', __lastrep(k));
+// Solution 1 ends here
+
+// 5. Most Repeated Character max
 
 // 2. Return the second smallest element in the array x 
 // Solution 1         Time complexity is O(n), is directly proportional to its size and will grow linearly.
@@ -302,7 +322,7 @@ const __av = scores =>{
   }
   
   // console.log(score);
-  var max =0;
+  var max = 0;
   for(var i in score){
     if(score[i].avg>max){
       max = score[i].avg;
@@ -479,7 +499,6 @@ const __angagramPali = str =>{
   return true;
 }
 
-
 var inputStr = 'madam';
 console.log('string is palindrome ', __angagramPali(inputStr));
 //Solution 1 ends here
@@ -495,3 +514,85 @@ console.log('string is palindrome ', __angagramPali(inputStr));
 5. Time complexity and memory complexity.
 
 */
+
+
+// With Test Cases
+
+function secondSmallest(x)
+{
+  // todo: implement this function
+
+  const sortArray = arr => {
+    var len = arr.length;
+    
+    if(len < 2) return arr;
+    
+    var counter = arr[0];
+
+    var ls = [];
+    var gr = [];
+
+    //comparing the counter to next element in an array
+    for(var i = 1; i < len; i++) {
+      if(arr[i] < counter){
+        ls.push(arr[i]);  // pushing values less then counter
+      } else{
+        gr.push(arr[i]);  // pushing values greater then counter
+      }
+    } 
+
+    // merging all the arrays into one as and getting the sorted Array
+    var sortedArr = [...sortArray(ls), counter, ...sortArray(gr)];
+    
+    // removing duplicates from the sorted array
+    let removeDup = arr => arr.filter((v,i) => arr.indexOf(v) === i);
+    let uniqueArr = removeDup(sortedArr);
+
+    return uniqueArr;
+  }
+
+   if(x.length < 2)
+     return 0;
+   else
+   { 
+     var output = sortArray(x);
+     return output[1];  // returning the second smallest value from the sorted array.
+   }
+}
+
+
+/**
+ * Returns true if all tests pass; otherwise, returns false.
+ */
+function doTestsPass()
+{
+  // todo: add more test cases
+  var testArrays  = [[0], [-44,-44,-4,-3,22,5,-11,5,89,0,22], [5,22,65,1,666,6] ];
+  var testResults = [0,-11, 5];
+
+  // Run through the tests and make assertions
+  for(var i = 0; i < testArrays.length; i++)
+  {
+  if(secondSmallest(testArrays[i]) != testResults[i])
+  {
+    return false;
+  }
+  }
+  return true;
+}
+
+
+/**
+ * Main execution entry.
+ *//**
+ * Main execution entry.
+ */
+if(doTestsPass())
+{
+  console.log("All tests pass!");
+}
+else
+{
+  console.log("There are test failures.");
+}
+
