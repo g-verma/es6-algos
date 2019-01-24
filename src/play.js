@@ -54,3 +54,20 @@ console.log(lName + ', '+ fName);
 
 // output: 100, 4, 8
 console.log(third, second, first);
+
+function curry(func) {
+  return function(a) {
+    return function(b) {
+      return func(a, b);
+    };
+  };
+}
+
+// usage
+function sum(a, b) {
+  return a + b;
+}
+
+let carriedSum = curry(sum);
+
+console.log( carriedSum(1)(2) ); // 3
