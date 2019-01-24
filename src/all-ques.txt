@@ -14,7 +14,12 @@
 5. Binary Search. Binary tree is full BST or not.
 6. Grouping words as per anagram.
 7. Staircase with 1,2,3 steps and max height of Staircase.
-8. Anagram of a word is palindrome or not.
+8. Anagram of a word is palindrome or not., with list of sub arrays.
+9. linear search
+
+
+
+
 
 ----- 
 1. I want you to solve every problem in three different ways.

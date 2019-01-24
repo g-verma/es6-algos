@@ -1,15 +1,6 @@
 //1. Best average grade and run length encoding
 //-- given an array scores [][] = {{“jerry”,”65”},{“bob”,”91”}, {“jerry”,”23”}, {“Eric”,”83”}} Find the student with highest average score
 //2. Second smallest 
-
-
-
-
-
-
-
-
-
 // Following program will accept the input string as a parameter and returns the following values.
 
 // 1. First Repeated Character
@@ -31,11 +22,15 @@ console.log("First Repeating Char is: ", __frep(instr));
 
 // Solution 2     Time complexity is O(n^2), code is executed n number of times for all the elements inside loop
 const __repf = str =>{
-  var char = 0;         // using char count to check the number of times character appeared
+  var char = 0;  
+  
+  // using char count to check the number of times character appeared
   for (var i = 0; i < str.length; i++){
     var len = str.length
     for (var j = i+1; j < len; j++){
       if (str[i] === str[j]) {
+
+
         char++;   // incrementing the char each time we found repeative char
         if (char >= 2) {
         return (str[i]);   // returning char whose char count is more the 2
@@ -47,6 +42,8 @@ const __repf = str =>{
 var inputString = "bacbdaa";
 console.log("First Repeating char is: ", __repf(inputString));
 // *** Solution 2 ends here ***
+
+
 
 // Solution 3   Time complexity is O(n), as its in direct proportion to its size, will grow linearly
 const __repk = str => {
@@ -365,6 +362,8 @@ const __median = (arr1, arr2) =>{
   var mergeArr = [...arr1, ...arr2];
 
   var sortedArr = mergeArr.sort((a,b)=>a-b);
+
+  
   //console.log(sortedArr);
   if(sortedArr.length % 2 == 0){
     var mid1 = sortedArr.length/2
