@@ -502,6 +502,15 @@ console.log('string is palindrome ', __angagramPali(inputStr));
 
 
 
+// this will also return the sorted array from the input
+function logArguments(...args) {
+  for (let arg of args) {
+    return arg;
+  }
+}
+var k = [5, 8, 1, 2, 15, 3, 200];
+console.log(logArguments(k))
+
 /*
 ------------ notes -------------
 1. I want you to solve every problem in three different ways.

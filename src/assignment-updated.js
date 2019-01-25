@@ -418,23 +418,16 @@ console.log("Element Found : ", __bsearch(barr, 1));
 
 // 6. Grouping words as per anagram
 // Solution 1          Time complexity is O(n), is directly proportional to its size and will grow linearly.
-const __anagram = arr => {
-  let obj = {};   // an object to store all the words after sorting
-  arr.forEach( item =>{
-      const val = item.split('').sort().join('');
-      if (obj[val]) {
-          return obj[val].push(item);
-      }
-      obj[val] = [item];
+const __anagram = inputArray => {
+  let resObj = {};   // an object to store all the words after sorting
+  inputArray.forEach( item =>{
+      let value = item.split('').sort().join('');
+      return resObj[value] ? resObj[value].push(item) : resObj[value] = [item];
   });
-  return obj;
+  return resObj;
 }
-
-
-var str = ['cat', 'dog', 'tac', 'god' , 'act','xyz'];
-
-var output = Object.values(__anagram(str));
-console.log(String(output));
+let str = ['cat', 'dog', 'tac', 'god' , 'act','xyz'];
+console.log(String(Object.values(__anagram(str))));
 
  // *** Solution 1 ends here ***
 
