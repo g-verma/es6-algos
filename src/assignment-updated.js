@@ -419,7 +419,7 @@ console.log("Element Found : ", __bsearch(barr, 1));
 // 6. Grouping words as per anagram
 // Solution 1          Time complexity is O(n), is directly proportional to its size and will grow linearly.
 const __anagram = arr => {
-  const obj = {};   // an object to store all the words after sorting
+  let obj = {};   // an object to store all the words after sorting
   arr.forEach( item =>{
       const val = item.split('').sort().join('');
       if (obj[val]) {
@@ -440,32 +440,23 @@ console.log(String(output));
 
  // 7. Staircase problem with max step 1,2,3
 // Solution 1       Time Complexity is n*(log n)
-const __stair = n =>{
-  if(n == 1 || n == 0)
-      return 1;
-  else if(n == 2 )
-       return 2;
-  else {   
-      var output = __stair(n-1) + __stair(n-2) + __stair(n-3);
-      return output;
-  }
+const __climb = steps =>{
+  return (steps==1 || steps==0 ) ? 1 :
+    (steps==2) ? 2: 
+    __climb(steps-1) + __climb(steps-2) + __climb(steps-3);
 }
-console.log("ways to climb: ", __stair(3));  //output : 4
+console.log("ways to climb: ", __climb(3));  //output : 4
 // *** Solution 1 ends here ***
 
-// Solution 2  Using dynamic programming          complexity is O(n)
-const __stc = n =>{   
-  var res = [n];  
-  res[0] = 1;
-  res[1] = 1;
-  res[2] = 2;
-
-  for(var i = 3; i <= n; i++){
-      res[i] = res[i-1] + res[i-2] + res[i-3];
+// Solution 2  Using dynamic programming     complexity is O(n)
+const __waysToClimb = steps =>{   
+  const result = [1,1,2];  
+  for(let count = 3; count <= steps; count++){
+      result[count] = result[count-1] + result[count-2] + result[count-3];
   }
-  return res[n];
+  return result[steps];
 }
-console.log('ways to climb: ', __stc(3));  // input 3, output 4 :: input 4, ouput 7
+console.log('ways to climb: ', __waysToClimb(3));  // input 3, output 4
 // *** Solution 2 ends here ***
 
 
