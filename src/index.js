@@ -1176,6 +1176,11 @@ const __rrd = str => {
         obj[ostr[i]] = "";
     }
 
+    //another approach using for in 
+    for(let k in str){
+        obj[str[k]] = '';
+    }
+
     //return Object.keys(obj);
     
     for(var i in obj){
