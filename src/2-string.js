@@ -1,3 +1,23 @@
+//first non - repeating
+const __nonrep = str => {
+  let char = [];
+
+  for (let k of str) {
+      (char[k]) ? char[k]++ : char[k] = 1;
+  }
+  
+  for (let i of str) {
+      if (char[i] === 1) {  
+          return i;  // returning char whose char count is 1 for non repeating char
+      }
+  }
+}
+var inputString = "abcab";
+console.log("First Non-Repeating char is: ", __nonrep(inputString));
+
+
+
+
 //run length / compression / encoding
 const __runLength = str => {
 var obj={};
