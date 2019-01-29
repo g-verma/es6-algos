@@ -1,3 +1,21 @@
+//run length / compression / encoding
+const __runLength = str => {
+var obj={};
+for(let i of str){
+  obj[i] ? obj[i] = obj[i]+1 : obj[i] = 1;
+}
+
+let kk = ''; 
+for(let k in obj){
+    kk += (k+obj[k]);
+}
+return kk;
+}
+
+let s ='abcab';
+console.log(__runLength(s))
+
+
 
 function softvisionAlgo(input) {
     let firstRepeating = '',
@@ -7,7 +25,8 @@ function softvisionAlgo(input) {
         mostRepeated = '';
   
     let inputArr = input.split('');
-    
+  
+   // array count  
     let arr = [];
     for(let x of input){
       let count = 0;
