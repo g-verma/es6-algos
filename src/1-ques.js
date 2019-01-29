@@ -21,7 +21,7 @@ k = [7,8,0,1]
 console.log(__secondSmallest(k))
 
 
-// Second Smallest with max values 
+// Second Smallest with max values and removing duplicates
 // solution 2
 const __secondSmallest = inputArr => {
     if(inputArr.length <=1) return 0;
@@ -102,6 +102,10 @@ const __avgMax = scores =>{
   
 var pp = [["jerry","65"],["bob","90"],["jerry","23"],["eric","23"]];
 console.log(__avgMax(pp));
+
+
+// First Non repeating character
+
 
   
 //median with different even and odd size of arrays
@@ -238,3 +242,12 @@ console.log('ways to climb: ', __waysToClimb(3));  // input 3, output 4
   
   var inputStr = 'madam';
   console.log(__angagramPali(inputStr));
+
+// max height of staircase with blocks
+maxHeightOfStairs = (steps) =>{
+  let output = (-1 + Math.sqrt(1 - (4*-2*steps)))/2
+  return Math.floor(output);
+}
+
+var steps = maxHeightOfStairs(10);
+console.log(steps)

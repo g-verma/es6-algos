@@ -1,23 +1,89 @@
-const __secondSmallest = arr =>{
-  if(arr.length<=1){
-      return 0;
-  }
-  let first = 9999, second = 9999;
 
-  for(let x of arr){
-      if(x < first){
-          second =  first;
-          first = x;
-      }
-      else if(x < second && x !=first){
-          second = x;
-      }
+function softvisionAlgo(input) {
+  let firstRepeating = '',
+      lastRepeating = '',
+      firstNonRepeating = '',
+      lastNonRepeating = '',
+      mostRepeated = '';
+
+  let inputArr = input.split('');
+  
+  let arr = [];
+  for(let x of input){
+    let count = 0;
+
+    for(let y of input ){
+      y === x ? count++ : count;
+    }
+    arr.push(count);
   }
-  return second;
+  console.log('new arr ', arr);
+
+
+  /*
+  ** Following line will fetch the first and last repeated item out of input array.
+  */
+// first repeating
+  for(let k in arr){
+    if(arr[k] == 2){
+     console.log('frst rep is ',input[k]);
+     break;
+    }
+  }
+
+//first non repeating
+  for(let g in arr){
+    if(arr[g] == 1){
+      console.log('nnnrep ',input[g]);
+    }
+  }
+  
+  let iteration = true;
+  arr.forEach((val, idx) => {
+      if(val > 1 && iteration) {
+          firstRepeating = inputArr[idx];
+          iteration = false;
+      } else if(val > 1 && firstRepeating !== inputArr[idx]) {
+          lastRepeating = inputArr[idx];
+      }
+     
+  });
+
+  /*
+  ** Following line will fetch the first and last non repeated item out of input array.
+  */
+  let iteration2 = true;
+  arr.forEach((val, idx) => {
+      if(val === 1 && iteration2) {
+          firstNonRepeating = inputArr[idx];
+          iteration2 = false;
+      } else if(val === 1 && firstNonRepeating !== inputArr[idx]) {
+          lastNonRepeating = inputArr[idx];
+      }
+  });
+
+  /*
+  ** Following line will fetch the most repeated item out of input array.
+  */
+  mostRepeated = inputArr[arr.indexOf(Math.max(...arr))];
+
+
+  console.log('First Repeating Character : ', firstRepeating);
+  console.log('Last Repeating Character : ', lastRepeating);
+  console.log('First Non Repeating Character : ', firstNonRepeating);
+  console.log('Last Non Repeating Character : ', lastNonRepeating);
+  console.log('Most Repeated Character : ', mostRepeated);
 }
 
-k = [7,8,0,1]
-console.log(__secondSmallest(k))
+
+let k = 'abca'
+softvisionAlgo(k)
+
+
+
+
+
+
 
 
 
@@ -37,24 +103,19 @@ console.log(__secondSmallest(k))
 //  * Returns the second smallest element in the array x.
 //  * Returns 0 if the array has fewer than 2 elements.
 //  */
-// function secondSmallest(x){
-//   if(x.length <=1) return 0;
-
-//   let [first, second] = [999,999];
-
-//   for(let item of x){
-//     if(item < second){
-//       if(item < first){
-//         second = first;
-//         first = item;
-//       } else{
-//         second = item;
-//       }
+// function secondSmallest(inputArr){
+//   let avg = [];
+  
+//   for(let x in inputArr){
+//     let [total,subCount] = [0,0];
+//     for(let y of x){
+//       total += y;
+//       subCount++;
 //     }
+
+//     avg.push(total/subCount);
 //   }
-
-//   return second;
-
+//   return Math.max(...avg);
 // }
 
 
@@ -64,8 +125,12 @@ console.log(__secondSmallest(k))
 // function doTestsPass()
 // {
 //   // todo: add more test cases
-//   var testArrays  = [[0],[0, 1]];
-//   var testResults = [0,1];
+//   var testArrays2 = [[0],[0, 1],[3,1,2]];
+  
+//   var testArrays =['abcac','abhab'];
+//   var testResults = [b,h];
+
+//   var testResults2 = [0,1,2];
   
 //   // Run through the tests and make assertions
 //   for(var i = 0; i < testArrays.length; i++)
