@@ -1,3 +1,24 @@
+// working second smallest
+function secondSmallest(arr){
+
+  if(arr.length<=1){
+      return 0;
+  }
+  var first = 9999, second = 9999;
+  for(var i=0;i<arr.length;i++){
+      if(arr[i]<first){
+          second =  first;
+          first = arr[i];
+      }
+      else if(arr[i]<second && arr[i]!=first){
+          second = arr[i];
+      }
+  }
+  return second;
+}
+
+
+
 //median
 const __median = (inputArr1, inputArr2) =>{
     let mergeArr = [...inputArr1, ...inputArr2];
@@ -25,7 +46,7 @@ const __median = (inputArr1, inputArr2) =>{
 
 // sec small
 const __secondSmallest = inputArr => {
-    if(inputArr.length == 0) return 0;
+    if(inputArr.length <=1) return 0;
   
     let [first,second] = [inputArr[0], inputArr[0]];
   
