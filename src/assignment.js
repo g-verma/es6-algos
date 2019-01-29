@@ -132,7 +132,7 @@ const firstNonRep = str => {
 console.log('First Non-repeating char is: ', firstNonRep('abbac'));
 // *** Solution 2 ends here *** 
 
-// 4. Last Non Repeating Character
+// 4. Last Repeating Character
 // Solution 1
 const __lastrep = str =>{
 	var obj = {}
