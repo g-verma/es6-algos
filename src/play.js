@@ -1,3 +1,22 @@
+function mostRepeated(str){
+  let count = {};
+  for(let val of str){
+    if(!count.hasOwnProperty(val)){
+    count[val] = 1;
+    }else{
+    count[val] += 1;
+  }
+  }
+  console.log(count);
+  let maxCount = Math.max(...count);
+  return Object.keys(count)[Object.values(count).indexOf(maxCount)]
+  }
+  
+  var s = mostRepeated("abcabcc"); 
+  console.log(s);
+
+
+
 
 // /* Problem Name is &&& Second Smallest &&& PLEASE DO NOT REMOVE THIS LINE. */
 
@@ -15,24 +34,24 @@
 //  * Returns the second smallest element in the array x.
 //  * Returns 0 if the array has fewer than 2 elements.
 //  */
-// function secondSmallest(arr){
+// function secondSmallest(x){
+//   if(x.length <=1) return 0;
 
-//     if(arr.length<=1){
-//         return 0;
-//     }
-//     var first = 999, second = 999;
+//   let [first, second] = [999,999];
 
-//     for(var i=0;i<arr.length;i++){
-    
-//       if(arr[i]<first){
-//             second =  first;
-//             first = arr[i];
-//         }
-//         else if(arr[i]<second && arr[i]!=first){
-//             second = arr[i];
-//         }
+//   for(let item of x){
+//     if(item < second){
+//       if(item < first){
+//         second = first;
+//         first = item;
+//       } else{
+//         second = item;
+//       }
 //     }
-//     return second;
+//   }
+
+//   return second;
+
 // }
 
 
@@ -42,8 +61,8 @@
 // function doTestsPass()
 // {
 //   // todo: add more test cases
-//   var testArrays  = [[0],[0, 1],[1,3,2]];
-//   var testResults = [0,1,2];
+//   var testArrays  = [[0],[0, 1]];
+//   var testResults = [0,1];
   
 //   // Run through the tests and make assertions
 //   for(var i = 0; i < testArrays.length; i++)

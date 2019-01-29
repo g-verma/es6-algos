@@ -18,6 +18,32 @@ function secondSmallest(arr){
 }
 
 
+// Second Smallest with max values 
+// solution 2
+const __secondSmallest = inputArr => {
+    if(inputArr.length <=1) return 0;
+  
+    let [first,second] = [999, 999];
+    
+    // let removeDup = arr => arr.filter((v,i) => arr.indexOf(v) === i);
+
+    for(let x of inputArr){
+      if(x < second){
+        if(x < first){
+          second = first;
+          first = x;
+        }else{
+          second = x;
+        }
+      }
+    }
+    return second;
+  }
+  
+  k = [20,70,50,40,2,1];
+  console.log(__secondSmallest(k))
+
+
 //Max average without student names
 const __maxAvg = inputArr =>{
     let avg = [];
