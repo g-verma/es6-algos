@@ -1,20 +1,23 @@
-function mostRepeated(str){
-  let count = {};
-  for(let val of str){
-    if(!count.hasOwnProperty(val)){
-    count[val] = 1;
-    }else{
-    count[val] += 1;
+const __secondSmallest = arr =>{
+  if(arr.length<=1){
+      return 0;
   }
-  }
-  console.log(count);
-  let maxCount = Math.max(...count);
-  return Object.keys(count)[Object.values(count).indexOf(maxCount)]
-  }
-  
-  var s = mostRepeated("abcabcc"); 
-  console.log(s);
+  let first = 9999, second = 9999;
 
+  for(let x of arr){
+      if(x < first){
+          second =  first;
+          first = x;
+      }
+      else if(x < second && x !=first){
+          second = x;
+      }
+  }
+  return second;
+}
+
+k = [7,8,0,1]
+console.log(__secondSmallest(k))
 
 
 
