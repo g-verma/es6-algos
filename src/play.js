@@ -1,31 +1,3 @@
-  // Anagaram of a word is palindrome or not
-  const __angagramPali = str =>{
-    let obj = {};
-    let count = 0;
-  
-    for(let x in str){
-        obj[str[x]] ? obj[str[x]]++ : obj[str[x]] = 1;
-    }
-    //console.log(obj);
-    for(var k in obj){
-      if(obj[k] %2 !=0 && count <2){
-        count++;
-        
-        if(count == 2){
-          return false;
-        }
-      }
-    }
-  
-    return true;
-  }
-  
-  var inputStr = 'madam';
-  console.log(__angagramPali(inputStr));
-
-
-
-
 
 // /* Problem Name is &&& Second Smallest &&& PLEASE DO NOT REMOVE THIS LINE. */
 
