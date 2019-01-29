@@ -1,3 +1,24 @@
+// last repeating char
+const __lastrep = str =>{
+	var obj = {}
+
+  for(var i=str.length-1; i>=0;i--){
+      if(obj[str[i]]){
+        obj[str[i]]++;
+        if(obj[str[i]] > 1){      
+            return str[i];
+          }
+      }else{
+        obj[str[i]] = 1;
+      }
+    }
+}
+
+var k = 'abab';
+console.log('last repeated: ', __lastrep(k));
+
+
+
 //first non - repeating
 const __nonrep = str => {
   let char = [];
