@@ -408,6 +408,8 @@ const secondSmallest = inputArr =>{
   
   var inputStr = 'maaszdam';
   console.log(__angagramPali(inputStr));
+
+  
   const __angagramPali = str =>{
     let obj = {};
     let count = 0;
