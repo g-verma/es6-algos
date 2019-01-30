@@ -1,159 +1,107 @@
+// last repeating char
+const __lastrep = str =>{
+	var obj = {}
 
-function softvisionAlgo(input) {
-  let firstRepeating = '',
-      lastRepeating = '',
-      firstNonRepeating = '',
-      lastNonRepeating = '',
-      mostRepeated = '';
-
-  let inputArr = input.split('');
-  
-  let arr = [];
-  for(let x of input){
-    let count = 0;
-
-    for(let y of input ){
-      y === x ? count++ : count;
-    }
-    arr.push(count);
-  }
-  console.log('new arr ', arr);
-
-
-  /*
-  ** Following line will fetch the first and last repeated item out of input array.
-  */
-// first repeating
-  for(let k in arr){
-    if(arr[k] == 2){
-     console.log('frst rep is ',input[k]);
-     break;
-    }
-  }
-
-//first non repeating
-  for(let g in arr){
-    if(arr[g] == 1){
-      console.log('nnnrep ',input[g]);
-    }
-  }
-  
-  let iteration = true;
-  arr.forEach((val, idx) => {
-      if(val > 1 && iteration) {
-          firstRepeating = inputArr[idx];
-          iteration = false;
-      } else if(val > 1 && firstRepeating !== inputArr[idx]) {
-          lastRepeating = inputArr[idx];
+  for(var i=str.length-1; i>=0;i--){
+      if(obj[str[i]]){
+        obj[str[i]]++;
+        if(obj[str[i]] > 1){      
+            return str[i];
+          }
+      }else{
+        obj[str[i]] = 1;
       }
-     
-  });
-
-  /*
-  ** Following line will fetch the first and last non repeated item out of input array.
-  */
-  let iteration2 = true;
-  arr.forEach((val, idx) => {
-      if(val === 1 && iteration2) {
-          firstNonRepeating = inputArr[idx];
-          iteration2 = false;
-      } else if(val === 1 && firstNonRepeating !== inputArr[idx]) {
-          lastNonRepeating = inputArr[idx];
-      }
-  });
-
-  /*
-  ** Following line will fetch the most repeated item out of input array.
-  */
-  mostRepeated = inputArr[arr.indexOf(Math.max(...arr))];
-
-
-  console.log('First Repeating Character : ', firstRepeating);
-  console.log('Last Repeating Character : ', lastRepeating);
-  console.log('First Non Repeating Character : ', firstNonRepeating);
-  console.log('Last Non Repeating Character : ', lastNonRepeating);
-  console.log('Most Repeated Character : ', mostRepeated);
+    }
 }
 
+var k = 'abab';
+console.log('last repeated: ', __lastrep(k));
 
-let k = 'abca'
-softvisionAlgo(k)
-
-
-
-
+// // test case [['abcab'],['asdas'],['zxzxa']]
+// // out = [[c],[d],[a]];
 
 
 
 
+let fnonrepeat = (str) => {
+  let map = new Map();
 
-// /* Problem Name is &&& Second Smallest &&& PLEASE DO NOT REMOVE THIS LINE. */
+  for(let char of str){
+    if(!map.has(char)){
+      map.set(char,1);
+    }else{
+      map.set(char,map.get(char)+1);
+    }
+  }
 
-// /**
-//  * Instructions to candidate.
-//  * 1) Run this code in the REPL to observe its behaviour. The
-//  *    execution entry point is main().
-//  * 2) Consider adding some additional tests in doTestsPass().
-//  * 3) Implement secondSmallest() correctly.
-//  * 4) If time permits, some possible follow-ups.
-//  */
+  console.log('orignial array ',map)
+  let reverse = new Map([...map].reverse());
+  console.log('reverse ', reverse);
 
-
-// /**
-//  * Returns the second smallest element in the array x.
-//  * Returns 0 if the array has fewer than 2 elements.
-//  */
-// function secondSmallest(inputArr){
-//   let avg = [];
   
-//   for(let x in inputArr){
-//     let [total,subCount] = [0,0];
-//     for(let y of x){
-//       total += y;
-//       subCount++;
+  for(let entry of reverse){
+     console.log('entry ',entry)
+     if(entry[1] == 1){
+       return entry[0];
+     }
+  }
+}
+
+var inputString = "abcoab";
+console.log(fnonrepeat(inputString));
+
+
+// //remove dup using obj
+// const __rdnew = str => {
+//   var ostr = str.split('');
+//   var obj = {};
+  
+//   // let k = [1,1,2,5,2];
+  
+//   // for(let i of k ){  obj[i] = ""; }
+
+//   // console.log(obj);
+//   // // return Object.keys(obj);
+  
+  
+
+
+
+// }
+
+
+
+
+// var ystr = "dssss"
+// console.log("using object", __rdnew(ystr));
+
+
+
+
+
+// let maxAvgGrade = (arr) => {
+
+//   let studentMap = new Map();
+//   let count = 0;
+//   let maxAvg = 0;
+
+//   arr.forEach(item => {
+//     if(!studentMap.has(item[0])){
+//       count = 1;
+//       studentMap.set(item[0], item[1]/count);
+//     }else {
+//       let sum = studentMap.get(item[0]) + item[1];
+//       count++;
+//       studentMap.set(item[0],sum/count);
 //     }
-
-//     avg.push(total/subCount);
-//   }
-//   return Math.max(...avg);
-// }
-
-
-// /**
-//  * Returns true if all tests pass; otherwise, returns false.
-//  */
-// function doTestsPass()
-// {
-//   // todo: add more test cases
-//   var testArrays2 = [[0],[0, 1],[3,1,2]];
+//   })
   
-//   var testArrays =['abcac','abhab'];
-//   var testResults = [b,h];
-
-//   var testResults2 = [0,1,2];
+//   for (let avg of studentMap.values()) {
+//     (avg > maxAvg) ? maxAvg = avg : maxAvg;
+//   }
   
-//   // Run through the tests and make assertions
-//   for(var i = 0; i < testArrays.length; i++)
-//   {
-//   if(secondSmallest(testArrays[i]) != testResults[i])
-//   {
-//     return false;
+//   return maxAvg;
 //   }
-//   }
-//   return true;
-// }
-
-
-// /**
-//  * Main execution entry.
-//  */
-// if(doTestsPass())
-// {
-//   console.log("All tests pass!");
-// }
-// else
-// {
-//   console.log("There are test failures.");
-// }
-
-
+  
+  
+//   console.log(maxAvgGrade([["soumya",50],["Puspa",80],["soumya",100],["soumya",200],["Jenny",70], ["Jenny",140]]))
