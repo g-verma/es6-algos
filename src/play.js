@@ -1,61 +1,49 @@
-/* Problem Name is &&& Second Smallest &&& PLEASE DO NOT REMOVE THIS LINE. */
-
-/**
- * Instructions to candidate.
- * 1) Run this code in the REPL to observe its behaviour. The
- *    execution entry point is main().
- * 2) Consider adding some additional tests in doTestsPass().
- * 3) Implement secondSmallest() correctly.
- * 4) If time permits, some possible follow-ups.
- */
-
-
-/**
- * Returns the second smallest element in the array x.
- * Returns 0 if the array has fewer than 2 elements.
- */
-
-
-
-function secondSmallest(arr){
-  // to do 
-  let arr = [2,1,0,0,1,1]
- arr.filter((v,i)=> arr.indexOf(v) === i);
-
-
-  // return 0;
-}
-/**
- * Returns true if all tests pass; otherwise, returns false.
- */
-function doTestsPass()
-{
-  // todo: add more test cases
-  var testArrays = [[0],[0,1],[2,1,0,0,1,1]];
-  var testResults = [0,1,1];
-  
-  // Run through the tests and make assertions
-  for(var i = 0; i < testArrays.length; i++)
-  {
-  if(secondSmallest(testArrays[i]) != testResults[i])
-  {
-    return false;
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
   }
+
+  componentDidMount() {
+    fetch("https://api.example.com/items")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
-  return true;
+
+  render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ul>
+          {items.map(item => (
+            <li key={item.name}>
+              {item.name} {item.price}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
 }
-
-
-/**
- * Main execution entry.
- */
-if(doTestsPass())
-{
-  console.log("All tests pass!");
-}
-else
-{
-  console.log("There are test failures.");
-}
-
-
