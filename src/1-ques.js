@@ -307,3 +307,13 @@ console.log(countLengthOfCycle1([1,2,3,2,5],3))
 console.log(out);
 
 
+// let xhr = new XMLHttpRequest();
+// xhr.open('GET', 'https://reqres.in/api/users/2');
+// xhr.send();
+// xhr.onload = function() {
+//   if (xhr.status != 200) {
+//     console.log(xhr.status + ': ' + xhr.statusText); 
+//   } else {
+//     console.log(xhr.responseText.first_name); 
+//   }
+// };

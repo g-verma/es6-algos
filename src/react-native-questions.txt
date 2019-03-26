@@ -1,0 +1,42 @@
+1. Live Code Questions
+2. Code Test Subjective Questions
+3. React Native Questions - Theory
+
+
+// React Native Questions - Theory
+1. What are the ways to control a component in react native?
+    -- state, props
+2. List down the properties of Flexbox.
+    -- flexDirection , alignItems, justifyContent
+3. Define 'Touchable' components provided by React Native and explain gesture responder system?
+    -- 'Touchable' can provide the capability to capture tapping gestures.
+4. Explain with example what is ScrollView?
+    -- Its a generic scrolling container can host multiple components and views.
+5. How many types of List Views are available in React Native? and what props they requires?
+    -- FlatList (props - data and renderItem)and SectionList
+6. How to make a request in React Native? Explain with example.
+    -- using fetch API
+7. How to navigate between screens? Explain with eaxample.
+    -- Using React Navigation
+8. What is setNativeProps and how you can use it with TouchableOpacity?
+    -- TouchableOpacity uses setNativeProps internally to update the opacity of its child component.
+9. What is ActivityIndicator. Explain?
+10. What do you understad by KeyboardAvoidingView? 
+11. Explain what is PushNotificationIOS and How you can achieve it?
+
+// Live Code Questions
+1. Do a app that would fetch data from https://reqres.in/api/users?page=1&per_page=100. The app should display the names (First and Last name) and a text box to filter the names that is already displayed. The filter must not make API requests. Think in terms of components, best practices, clean and readable code. This should not take more than half an hour. "
+
+2. Create a Login and Registration Form for the User in React Native.
+Consider a scenario in which you want to save users when they login such that next time they open the application,
+they don't have to log in again.
+
+3. Create a calulator application in React Native, that supports Addition, multiplication, Subtration and Deletion.
+
+// Code Test Subjective Questions
+1. Consider a scenario in which you want to save users when they login such that next time they open the application,
+they don't have to log in again. Write the code to implement this scenario?
+2. Write a script for logging users out automatically after 30 seconds.
+3. Write code to call an REST API that fetches data and display the data in a table format. Following is the endpoint url https://reqres.in/api/users?page=1&per_page=100. 
+4. Write code to implement vibration for a duration of 1000ms on a click of a Button.
+5. Write code to displays a circular loading indicator.

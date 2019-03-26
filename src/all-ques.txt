@@ -1,12 +1,90 @@
 
+Following program will accept the input string as a parameter and returns the following values.
+1. First Repeated Number
+2. Last Repeated Number
+3. First Non Repeating Number
+4. Last Non Repeating Number
+5. Most Repeated Number
+
+
+2. Second smallest
+3. Best Average Grade  
+-Given a list of student test scores, find the best average grade.
+- Each student may have more than one test score in the list.
+4. Median in two sorted and non sorted arrays
+5. Binary Search
+6. Grouping words as per anagram
+7. Staircase
+8. Quick sort
+9. Bubble sort
+10. Merge arrays - 
+11. searching
+12. max sum of sub arrays - kedene's algo
+13.Count Length of Circle in Array
+                 Given a function with 2 parameters - an integer array, and a startIndex
+                 Every element of array is greater than or equal to zero
+                 Starting from array[startIndex], follow each element the index points to
+                 Continue doing this until you find a circle, return the cycle
+                 return -1 if no cycle found.
+
+                 Test Case :-  countLengthOfCycle([1,0],0) //output should be 2
+                                      countLengthOfCycle([1,2,0],0) //output should be 3 
+
+14. Median of two sorted Arrays
+15. Find the second smallest number from a given array.
+16. Find the highest average grade of students, given input in object format
+17. Run Length Encoding // compressiion
+18 Smallest subarray with sum greater than a given value
+19 Flattening a Linked List
+20 Maximum height of the staircase
+21. How to determine if a binary tree is height-balanced?
+22 Count the subarrays having product less than k
+23 Second most repeated string in a sequence
+24 Egg Dropping Puzzle 
+25. Stock buy and sell
+26. Merge Sort
+27.Ugly Numbers
+28. Implement a Queue in Javascript, Implement a Stack in Javascript.
+29. Number Formation
+
+ https://geeksforgeeks.org 
+ https://github.com/TheAlgorithms/Java and https://algs4.cs.princeton.edu/home/
+https://www.geeksforgeeks.org/median-two-sorted-arrays-different-sizes-ologminn-m/
+https://www.geeksforgeeks.org/median-of-two-sorted-arrays/
+https://stackoverflow.com/questions/26539694/finding-the-average-highest-lowest-grade-of-input-array-elements
+https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together/
+https://www.geeksforgeeks.org/given-a-sequence-of-words-print-all-anagrams-together-set-2/
+https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+https://www.geeksforgeeks.org/binary-search/
+https://www.geeksforgeeks.org/binary-search-in-javascript/
+
+
+
+GS Interview Questions
+2.Difference between Angular and React
+3. React life Cycle and what is the difference between RealDom and VirtualDom and how it works.
+4. where is the best place to call the API when you want fetch data from rest API when react component load first time.
+5. how to write unit testing using jest and Enzyme.
+6. difference between node and java , how nodejs works.
+7. explain Redux how it works and flex architecture
+
+
+
+
+
+
+
+
+*------------------------------------------**
+
 ** Following program will accept the input string as a parameter and returns the following values.
-** 1. First Repeated Number
+** 1. First Repeated Number -- asked many times
 ** 2. Last Repeated Number
 ** 3. First Non Repeating Number
 ** 4. Last Non Repeating Number
 ** 5. Most Repeated Number
 
-2. Return the second smallest element in the array x.
+2. Return the second smallest element in the array x. -- asked frequently
 3. Best Average Grade.
 **  Given a list of student test scores, find the best average grade.
 **  Each student may have more than one test score in the list.
@@ -16,10 +94,12 @@
 7. Staircase with 1,2,3 steps and max height of Staircase.
 8. Anagram of a word is palindrome or not., with list of sub arrays.
 9. linear search
-
-
-
-
+10: Find the length of minimum sub array having sum greater than or equal to target value. - recently asked
+    arr[] = {1, 4, 45, 6, 0, 19}
+   x  =  51
+Output: 3
+Minimum length subarray is {4, 45, 6}
+11. Kedence Algo - find the sum of contigous array
 
 ----- 
 1. I want you to solve every problem in three different ways.
@@ -30,3 +110,13 @@
 
 
 
+
+//// 1. Count Length of cycle in Array
+// Given a function with 2 parameters - an integer array, and a startIndex
+// Every element of array is greater than or equal to zero
+// Starting from array[startIndex], follow each element to the index points to
+// Continue doing this until you find a cycle, return the cycle
+// return -1 if no cycle found.
+
+// Test Case :- countLengthOfCycle([1,0],0) //output should be 2
+// countLengthOfCycle([1,2,0],0) //output should be 3  
