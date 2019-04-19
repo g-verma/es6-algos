@@ -157,7 +157,7 @@ else
 // "aAbBC"
 
 
-// President Electin
+// President Election
 
 var _ = require('underscore');
 
