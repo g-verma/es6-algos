@@ -1,0 +1,65 @@
+
+
+Following program will accept the input string as a parameter and returns the following values.
+1. First Repeated Number
+2. Last Repeated Number
+3. First Non Repeating Number
+4. Last Non Repeating Number
+5. Most Repeated Number
+
+
+2. Second smallest
+3. Best Average Grade  
+-Given a list of student test scores, find the best average grade.
+- Each student may have more than one test score in the list.
+4. Median in two sorted and non sorted arrays
+5. Binary Search
+6. Grouping words as per anagram
+7. Staircase
+8. Quick sort
+9. Bubble sort
+10. Merge arrays - 
+11. searching
+12. max sum of sub arrays - kedene's algo
+13.Count Length of Circle in Array
+                 Given a function with 2 parameters - an integer array, and a startIndex
+                 Every element of array is greater than or equal to zero
+                 Starting from array[startIndex], follow each element the index points to
+                 Continue doing this until you find a circle, return the cycle
+                 return -1 if no cycle found.
+
+                 Test Case :-  countLengthOfCycle([1,0],0) //output should be 2
+                                      countLengthOfCycle([1,2,0],0) //output should be 3 
+
+14. Median of two sorted Arrays
+15. Find the second smallest number from a given array.
+16. Find the highest average grade of students, given input in object format
+17. Run Length Encoding // compressiion
+18 Smallest subarray with sum greater than a given value
+19 Flattening a Linked List
+20 Maximum height of the staircase
+21. How to determine if a binary tree is height-balanced?
+22 Count the subarrays having product less than k
+23 Second most repeated string in a sequence
+24 Egg Dropping Puzzle 
+25. Stock buy and sell
+26. Merge Sort
+27.Ugly Numbers
+28. Implement a Queue in Javascript, Implement a Stack in Javascript.
+29. Number Formation
+
+
+
+
+Best Average
+testaarr = [['ram','50'],['sham',40'],['ram','50'],['sri',90']]
+test result output = 100
+
+ram 10+40+50+50 = 150/4
+ = 37.5
+
+sham 40
+sri 90
+
+map object
+

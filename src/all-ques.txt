@@ -1,4 +1,3 @@
-
 Following program will accept the input string as a parameter and returns the following values.
 1. First Repeated Number
 2. Last Repeated Number
@@ -6,9 +5,10 @@ Following program will accept the input string as a parameter and returns the fo
 4. Last Non Repeating Number
 5. Most Repeated Number
 
-
 2. Second smallest
-3. Best Average Grade  
+3. Best Average Grade
+
+
 -Given a list of student test scores, find the best average grade.
 - Each student may have more than one test score in the list.
 4. Median in two sorted and non sorted arrays
@@ -47,8 +47,8 @@ Following program will accept the input string as a parameter and returns the fo
 28. Implement a Queue in Javascript, Implement a Stack in Javascript.
 29. Number Formation
 
- https://geeksforgeeks.org 
- https://github.com/TheAlgorithms/Java and https://algs4.cs.princeton.edu/home/
+https://geeksforgeeks.org 
+https://github.com/TheAlgorithms/Java and https://algs4.cs.princeton.edu/home/
 https://www.geeksforgeeks.org/median-two-sorted-arrays-different-sizes-ologminn-m/
 https://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 https://stackoverflow.com/questions/26539694/finding-the-average-highest-lowest-grade-of-input-array-elements
