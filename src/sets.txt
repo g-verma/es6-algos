@@ -1,0 +1,76 @@
+Date	Problem	URL	Solved/Not Solved	Time taken
+4-2-2019	
+ES6, ES7, ES8 , ES9		Done	1 Day
+Lodash.JS			
+String Manipulation, Arrays, Object Operations, Map, Set : Merging Arrays with out concat			
+
+Recursion - Factorial , Fibonacci			
+Time Complexity and Memory Complexity			
+Write a program to implement Bubble Sort			
+Write a program to implement Merge Sort			
+Write a program to implement Quick Sort			
+Write a program to implement Linear Sort			
+
+Write a progam to Implement Stack			
+Write a progam to Implement Queue			
+Write a progam to Implement Single Linked List			
+Write a progam to Implement Double Linked List			
+Write a progam to Implement Matrics			
+Implement Linear search			
+Implement Binary Search			
+Write a program to implement Breadth First Search(BFS) of a tree			
+Write a program to implement Depth First Search(DFS) of a tree			
+
+String Manipulations -Find First Repeated, First Non-Repeated, Last Repeated, Last Non-Repeated, Most Repeated Number			
+Find second smallest number from given array.			
+Find the max average grade from the given score.			
+Find smallest subarray with sum greater than a given value			
+Write a program to count Length of cycle in a given array.			
+
+Find the median of two sorted or unsorted arrays.			
+Write a program to print run length or compression of a string eg: 'abcabcd' //output: a2b2c2d1			
+Write a program to count the ways to climb staircase. Max steps to climb stairs 1,2,3.			
+How to determine if a binary tree is height-balanced?			
+Write a program to check anagram of a word is Palindrome or not?			
+
+Max sum of sub arrays - Kadane's algo			
+Flattening a linked list			
+Egg Dropping Puzzle			
+Ugly Numbers			
+Number Formation			
+
+Count the subarrays having product less than a given value.			
+Check if a number is power of 10 (i.e.: 1000 it is, 500 is not).			
+First unique character in a string			
+"Binary search tree, implement PUT and CONTAIN methods (and Order traversal method is slightly wrong, fix it)."			
+"A product is sold in a time frame. 1->n sellers are offered with a price.
+Example:
+- Seller 1 has an offer from 1pm to 6pm with a price of 20
+- Seller 2 has an offer from 2pm to 5pm with a price of 15
+Return a vector with smallest offers in above time slots."			
+
+Given an array arr of N integers. Find the contiguous sub-array with maximum sum. [1,2,3,-2,5] // 9			
+Sort a stack using Recursion			
+Check if two arrays are equal or not			
+Implement Queue using Stacks			
+Reverse words in a given string			
+
+Intersection Point in Y Shapped Linked Lists			
+Overlapping rectangles problem			
+Revise Previous day + React Js concepts			
+"Find the longest sub string and return its start index and length
+E.g,: input = ""abbbccda""
+output = [1,3]
+Testcases were
+1) input = """", output = [-1,0]
+2) input = ""100001011"", output = [1,4]
+2) input = ""aabbbbbCDaA"", output = [2,5] "			
+"Group of students sitting in circle and teacher wants to elect a new President, she will walk around the circle while singing song and where the song ends that particular student will be removed and this will be continued till the last student remaining and would be elected as President.
+For Example: There are 4 students n = [1,2,3,4], and the length of song ie k = 2, so first student that has to be removed is 2 and then 4 and then 3, So the student 1 will be the president.
+Following are the test cases and k=testCases[2]
+const testCases = [
+  [1,1,1],
+  [2,2,1],
+  [4,2,1],
+  [100,2,73]
+];			
