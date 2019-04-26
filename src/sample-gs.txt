@@ -27,7 +27,7 @@ function doTestsPass()
 {
   // todo: add more test cases
   var testArrays  = [[0], [0, 1]];
-  var testResults = 100;
+  var testResults = [0,1];
   
   // Run through the tests and make assertions
   for(var i = 0; i < testArrays.length; i++)
@@ -123,4 +123,55 @@ else
   console.log("There are test failures.");
 }
 
+
+
+
+//Group of students sitting in circle and teacher wants to elect a new President, she will walk around the circle while singing song and where the song ends that particular student will be removed and this will be continued till the last student remaining and would be elected as President.
+//For Example: There are 4 students n = [1,2,3,4], and the length of song ie k = 2, so first student that has to be removed is 2 and then 4 and then 3, So the student 1 will be the president.
+//Following are the test cases and k=testCases[2]
+
+//President Election
+
+
+
+var _ = require('underscore');
+
+var solution = (function(){
+ 
+function whoIsElected(n, k){
+     return -1;
+}
+  
+  
+function doTestsPass(testCases){
+  var passes = true;
+  for(var i=0; i<testCases.length; i++){
+    const testCase = testCases[i];
+    const expectedResult = testCase[2];
+    const actualResult = whoIsElected(testCase[0], testCase[1]);
+    passes = passes && (expectedResult === actualResult);
+  }
+  return passes;
+}
+
+return {
+  doTestsPass: doTestsPass,
+  whoIsElected: whoIsElected
+};
+
+})();
+
+const testCases = [ 
+  [1,1,1],
+  [2,2,1],
+  [4,2,1],
+  [100,2,73]
+];
+
+
+if(solution.doTestsPass(testCases)){
+  console.log('All tests pass');
+}else {
+  console.error("Not all tests pass:(");
+}
 
